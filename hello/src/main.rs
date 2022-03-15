@@ -6,7 +6,10 @@
 // mod tuple;
 // mod vars;
 // mod vectors;
-mod pointers_ref;
+// mod pointers_ref;
+mod hello_world;
+
+use hello_world::hello_world_func;
 
 fn main() {
   // print::run();
@@ -17,5 +20,6 @@ fn main() {
   // conditions::run();
   // loops::run();
   // functions::run();
-  pointers_ref::run();
+  // pointers_ref::run();
+  hello_world_func();
 }
