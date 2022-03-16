@@ -10,8 +10,9 @@ WORKDIR /home/docker/app
 FROM dev as debug
 
 USER root
-RUN apt-get update; \
-    apt-get install gdbserver;
+RUN apt update
+RUN apt install -y cmake build-essential xz-utils
+RUN apt install -y clang lldb
 
 USER docker
 EXPOSE 1234
