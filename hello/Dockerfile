@@ -11,8 +11,11 @@ FROM dev as debug
 
 USER root
 RUN apt update
-RUN apt install -y cmake build-essential xz-utils
-RUN apt install -y clang lldb
+RUN apt install -y build-essential clang lldb
+
+EXPOSE 1234
+EXPOSE 31200-31300
 
 USER docker
-EXPOSE 1234
+
+ENTRYPOINT lldb-server platform --listen "*:1234" --server --min-gdbserver-port 31200 --max-gdbserver-port 31300
