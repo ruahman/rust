@@ -12,14 +12,5 @@ mod hello_world;
 use hello_world::hello_world_func;
 
 fn main() {
-  // print::run();
-  // vars::run();
-  // tuple::run();
-  // arrays::run();
-  // vectors::run();
-  // conditions::run();
-  // loops::run();
-  // functions::run();
-  // pointers_ref::run();
   hello_world_func();
 }
