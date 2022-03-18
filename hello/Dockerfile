@@ -1,4 +1,4 @@
-### dev
+### development
 FROM rust:1.59 as dev
 
 RUN useradd -ms /bin/bash docker
@@ -27,7 +27,5 @@ COPY ./ .
 RUN cargo build --release
 
 ### production
-FROM alpine as prod
-WORKDIR /app
-COPY --from=builder /home/docker/app/target/release/hello ./
-CMD ["/app/hello"]
+FROM debian:buster-slim as production
+COPY --from=builder /home/docker/app/target/release/hello ./bin
