@@ -1,27 +1,26 @@
-.PHONY: image
-image: 
+.PHONY: image-dev
+image-dev:
+ifndef rmi
 	docker build --target=development -t rust-dev .
-	docker build --target=debug -t rust-debug .
-	docker build --target=production -t rust-prod .
-
-.PHONY: rmi-dev
-rmi-dev:
+else
 	docker image rm rust-dev
+endif
 
-.PHONY: rmi-debug
-rmi-debug:
+.PHONY: image-debug
+image-debug:
+ifndef rmi
+	docker build --target=debug -t rust-debug .
+else
 	docker image rm rust-debug
+endif
 
-.PHONY: rmi-prod
-rmi-prod:
+.PHONY: image-prod
+image-prod:
+ifndef rmi
+	docker build --target=production -t rust-prod .
+else
 	docker image rm rust-prod
-
-.PHONY: rmi-dangling
-rmi-dangling:
-	docker image rm $(shell docker images -f "dangling=true" -q)
-
-.PHONY: rmi
-rmi: rmi-dev rmi-debug rmi-prod rmi-dangling
+endif
 
 .PHONY: shell
 shell:
