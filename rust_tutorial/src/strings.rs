@@ -7,4 +7,7 @@ pub fn demo(){
     for word in hello.split_whitespace() {
         println!("{}", word);
     }
+
+    // string literals
+    // let greeting: &str = "Nice to meet you";
 }

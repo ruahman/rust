@@ -1,4 +1,4 @@
-pub fn run() {
+pub fn demo() {
   println!("pointers");
 
   // if you assign a non primative to another variable,

@@ -1,4 +1,4 @@
-pub fn run() {
+pub fn demo() {
   // vec is a mutable array
   let mut numbers: Vec<i32> = vec![1, 2, 3];
 

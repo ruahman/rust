@@ -1,4 +1,4 @@
-pub fn run() {
+pub fn demo() {
   println!("functions");
   greetings("hi", "diego");
   println!("{}", add(2, 2));

@@ -1,4 +1,4 @@
-pub fn run() {
+pub fn demo() {
   println!("loops");
 
   let mut x = 0;
