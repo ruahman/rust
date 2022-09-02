@@ -3,6 +3,7 @@ use rand::Rng;
 mod arrays;
 mod cli;
 mod closures;
+mod collections;
 mod conditions;
 mod enums;
 mod functions;
@@ -10,9 +11,11 @@ mod generics;
 mod hashmaps;
 mod loops;
 mod modules;
+mod options;
 mod ownership;
 mod pointers_ref;
 mod print;
+mod reference_counter;
 mod smart_pointers;
 mod strings;
 mod structs;
@@ -51,4 +54,7 @@ fn main() {
     closures::demo();
     smart_pointers::demo();
     threads::demo();
+    options::demo();
+    collections::demo();
+    reference_counter::demo();
 }
