@@ -1,4 +1,4 @@
-// mod arrays;
+mod arrays;
 // mod cli;
 // mod closures;
 // mod collections;
@@ -7,7 +7,7 @@
 // mod functions;
 // mod generics;
 // mod hashmaps;
-mod guess_random_number;
+// mod guess_random_number;
 mod io;
 // mod loops;
 // mod modules;
@@ -21,7 +21,7 @@ mod io;
 // mod structs;
 // mod threads;
 // mod traits;
-// mod tuple;
+mod tuple;
 // mod types;
 mod vars;
 // mod vectors;
@@ -31,17 +31,16 @@ fn main() {
 
     io::demo();
     vars::demo();
-    guess_random_number::demo();
+    tuple::demo();
+    arrays::demo();
     // print::demo();
     // types::demo();
     // strings::demo();
-    // tuple::demo();
     // vectors::demo();
     // conditions::demo();
     // loops::demo();
     // functions::demo();
     // pointers_ref::demo();
-    // arrays::demo();
     // structs::demo();
     // enums::demo();
     // cli::demo();
@@ -56,4 +55,5 @@ fn main() {
     // options::demo();
     // collections::demo();
     // reference_counter::demo();
+    // guess_random_number::demo();
 }
