@@ -35,6 +35,14 @@ struct Company<'z> {
     ceo: &'z Person,
 }
 
+fn calculate_lenght(s: &String) -> usize {
+    s.len()
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
 pub fn demo() {
     let str1 = String::from("hello world");
     let str2 = str1;
@@ -105,4 +113,27 @@ pub fn demo() {
     };
 
     println!("{}{}", tesla.name, tesla.ceo.name);
+
+    // actual copy of the data
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+
+    println!("s1 = {}, s2 = {}", s1, s2);
+
+    // stack only copy,
+    let x = 5;
+    let y = x;
+
+    println!("x = {}, y = {}", x, y);
+
+    // pass by reference
+    let s1 = String::from("hello");
+    let len = calculate_lenght(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+
+    // mutable reference
+    let mut s = String::from("hello");
+
+    change(&mut s);
 }

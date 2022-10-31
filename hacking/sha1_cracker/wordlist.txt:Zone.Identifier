@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/
+HostUrl=https://raw.githubusercontent.com/skerkour/black-hat-rust/main/ch_01/sha1_cracker/wordlist.txt
