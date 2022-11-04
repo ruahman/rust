@@ -44,16 +44,18 @@ fn change(some_string: &mut String) {
 }
 
 pub fn demo() {
+    // only one can point to a reference
     let str1 = String::from("hello world");
     let str2 = str1;
     let str3 = str2.clone();
     // this causes problems
     // println!("{}", str1);
     println!("{}{}", str2, str3);
-    // print_str(str1);
 
+    // print_str(str1);
     // problem because it got moved to function
     // println!("{}",str1)
+
     let mut str4: String = String::from("test ");
     change_string(&mut str4);
     print_str(str4);
