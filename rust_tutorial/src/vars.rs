@@ -22,7 +22,7 @@ pub fn demo() {
     const ID: i32 = 001;
     println!("ID: {}", ID);
 
-    // deconstuct
+    // deconstruct
     let (my_namex, my_age) = ("Brad", 37);
     println!("{}{}", my_namex, my_age);
 
