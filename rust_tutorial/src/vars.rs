@@ -41,3 +41,11 @@ pub fn demo() {
     let spaces = "   ";
     let spaces = spaces.len();
 }
+
+#[cfg(test)]
+mod vars_tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(2 + 3, 5)
+    }
+}
