@@ -1,13 +1,28 @@
 use rand::Rng;
 
-#[allow(unused_variables)]
-pub fn demo() {
-    println!("***** demo variables *****");
-
+fn get_rand_num() -> i32 {
     // get random number
     let random_num: i32 = rand::thread_rng().gen_range(1..101);
-    println!("{}", random_num);
+    random_num
+}
 
+#[allow(dead_code)]
+#[derive(Debug)]
+struct MutVars {
+    let_var: &'static str,
+}
+fn mut_vars() -> MutVars {
+    let let_var = "this should not change";
+    // test = "cant't do this"
+    return MutVars { let_var };
+}
+
+#[allow(unused_variables)]
+pub fn demo() {
+    println!("--- demo variables ---");
+
+    println!("{}", get_rand_num());
+    println!("{:?}", mut_vars());
     // regualr var
     let my_name = "diego";
     println!("my name is {}", my_name);
@@ -44,8 +59,18 @@ pub fn demo() {
 
 #[cfg(test)]
 mod vars_tests {
+    use super::*;
+
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 3, 5)
+    fn test_random() {
+        let res1 = get_rand_num();
+        let res2 = get_rand_num();
+        assert_ne!(res1, res2);
+    }
+
+    #[test]
+    fn test_mutable_vars() {
+        let res = mut_vars();
+        assert_eq!(res.let_var, "this should not change")
     }
 }
