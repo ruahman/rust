@@ -1,5 +1,8 @@
 use rand::Rng;
 
+// const, get replaces with value, where var is a memory address
+const ID: i32 = 001;
+
 fn get_rand_num() -> i32 {
     // get random number
     let random_num: i32 = rand::thread_rng().gen_range(1..101);
@@ -10,36 +13,22 @@ fn get_rand_num() -> i32 {
 #[derive(Debug)]
 struct MutVars {
     let_var: &'static str,
+    mut_age: i32,
+    constant_id: i32,
+    decon_name: &'static str,
+    decon_age: i32,
+    shaddow: i32,
 }
-fn mut_vars() -> MutVars {
+fn vars() -> MutVars {
     let let_var = "this should not change";
     // test = "cant't do this"
-    return MutVars { let_var };
-}
 
-#[allow(unused_variables)]
-pub fn demo() {
-    println!("--- demo variables ---");
-
-    println!("{}", get_rand_num());
-    println!("{:?}", mut_vars());
-    // regualr var
-    let my_name = "diego";
-    println!("my name is {}", my_name);
-
-    // mutable var
-    let mut age = 37;
-    println!("{}", age);
-    age = 40;
-    println!("{}", age);
-
-    // const, get replaces with value, where var is a memory address
-    const ID: i32 = 001;
-    println!("ID: {}", ID);
+    #[allow(unused_assignments)]
+    let mut mut_age = 37;
+    mut_age = 40;
 
     // deconstruct
-    let (my_namex, my_age) = ("Brad", 37);
-    println!("{}{}", my_namex, my_age);
+    let (decon_name, decon_age) = ("Brad", 37);
 
     // shadowing
     let x = 5;
@@ -47,14 +36,26 @@ pub fn demo() {
     let x = x + 1;
 
     {
+        #[allow(unused_variables)]
         let x = x * 2;
-        println!("The value of x in the inner scope is: {x}");
     }
 
-    println!("The value of x is: {x}");
+    return MutVars {
+        let_var,
+        mut_age,
+        constant_id: ID,
+        decon_name,
+        decon_age,
+        shaddow: x,
+    };
+}
 
-    let spaces = "   ";
-    let spaces = spaces.len();
+#[allow(unused_variables)]
+pub fn demo() {
+    println!("--- demo variables ---");
+
+    println!("get_rand_num: {}", get_rand_num());
+    println!("vars: {:?}", vars());
 }
 
 #[cfg(test)]
@@ -70,7 +71,10 @@ mod vars_tests {
 
     #[test]
     fn test_mutable_vars() {
-        let res = mut_vars();
-        assert_eq!(res.let_var, "this should not change")
+        let res = vars();
+        assert_eq!(res.let_var, "this should not change");
+        assert_eq!(res.mut_age, 40);
+        assert_eq!(res.constant_id, ID);
+        assert_eq!(res.shaddow, 6);
     }
 }

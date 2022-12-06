@@ -1,46 +1,42 @@
-use std::mem;
+static X: [i32; 5] = [1, 2, 3, 4, 5];
 
-#[allow(unused_variables)]
-pub fn demo() {
+#[allow(dead_code)]
+#[derive(Debug)]
+struct Arrays {
+    numbers: [i32; 5],
+    slice: &'static [i32],
+}
+fn arrays<'a>() -> Arrays {
     // arrays have a fixed lenght
     let numbers: [i32; 5] = [1, 2, 3, 4, 5];
 
-    // debug trait
-    println!("{:?}", numbers);
-    println!("{}", numbers.len());
-    println!("{}", mem::size_of_val(&numbers));
+    // slices point to a slice of memory of a array
+    let slice: &[i32] = &X[1..3];
 
-    // slices point to memory of array
-    let slice: &[i32] = &numbers[1..3];
-    println!("{:?}", slice);
-    println!("{:?}", &numbers[0..3]);
-    // println!("{:?}", numbers[0..3]); // causes problems
+    // this doesn't work
+    // let slice: &[i32] = X[1..3]
 
-    // array of string literals
-    let months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
+    return Arrays { numbers, slice };
+}
 
-    // specify size of array and type
-    let a: [i32; 5] = [1, 2, 3, 4, 5];
+#[allow(unused_variables)]
+pub fn demo() {
+    println!("--- arrays ---");
 
-    // initialize array with 5
-    let a = [3; 5];
+    println!("arrays: {:?}", arrays());
+}
 
-    // access individual elements
-    let a = [1, 2, 3, 4, 5];
+#[cfg(test)]
+mod arrays_tests {
+    use super::*;
+    use std::mem;
 
-    let first = a[0];
-    let second = a[1];
+    #[test]
+    fn test_arrays() {
+        let res = arrays();
+        assert_eq!(res.numbers, [1, 2, 3, 4, 5]);
+        assert_eq!(res.numbers.len(), 5);
+        assert_eq!(mem::size_of_val(&res.numbers), 20);
+        assert_eq!(res.slice.len(), 2)
+    }
 }

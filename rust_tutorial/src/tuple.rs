@@ -1,23 +1,40 @@
-pub fn demo() {
-    println!("***** tuple demo *****");
-
-    //// simple example
-    let person: (&str, &str, i8) = ("diego", "vila", 40);
+#[allow(dead_code)]
+#[derive(Debug)]
+struct Tuples {
+    person: (&'static str, &'static str, i8),
+    x: i32,
+    y: f64,
+    z: i32,
+}
+fn tuples() -> Tuples {
+    let person: (&str, &str, i8) = ("diego", "vila", 41);
     println!("{}:{}:{}", person.0, person.1, person.2);
 
     //// deconstuct tuples
     let tup = (500, 6.4, 1);
     let (x, y, z) = tup;
-    println!("tup: {x},{y},{z}");
 
-    //// access tuple member directly
-    let x: (i32, f64, u8) = (500, 6.4, 1);
+    return Tuples { person, x, y, z };
+}
 
-    let five_hundred = x.0;
+pub fn demo() {
+    println!("--- tuple demo ---");
 
-    let six_point_four = x.1;
+    println!("tuple: {:?}", tuples());
+}
 
-    let one = x.2;
+#[cfg(test)]
+mod tuples_tests {
+    use super::*;
 
-    println!("{five_hundred},{six_point_four},{one}");
+    #[test]
+    fn test_tuples() {
+        let res = tuples();
+        assert_eq!(res.person.0, "diego");
+        assert_eq!(res.person.1, "vila");
+        assert_eq!(res.person.2, 41);
+        assert_eq!(res.x, 500);
+        assert_eq!(res.y, 6.4);
+        assert_eq!(res.z, 1);
+    }
 }

@@ -1,4 +1,4 @@
-// mod arrays;
+mod arrays;
 // mod cli;
 // mod closures;
 // mod collections;
@@ -8,7 +8,7 @@
 // mod generics;
 // mod hashmaps;
 // mod guess_random_number;
-// mod io;
+mod io;
 // mod loops;
 // mod modules;
 // mod options;
@@ -22,18 +22,18 @@
 // mod structs;
 // mod threads;
 // mod traits;
-// mod tuple;
+mod tuple;
 // mod types;
 // mod vectors;
 mod vars;
 
 fn main() {
-    println!("----- rust tutorial -----");
+    println!("***** rust tutorial *****");
 
     vars::demo();
-    // io::demo();
-    // tuple::demo();
-    // arrays::demo();
+    io::demo();
+    tuple::demo();
+    arrays::demo();
     // conditions::demo();
     // ownership::demo();
     // slices::demo();
