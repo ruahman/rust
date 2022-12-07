@@ -1,6 +1,23 @@
-// 1. each value has an owner
-// 2. there is only one owner at a time
-// 3. when the owner goes out of scope the value disapears too
+#[allow(dead_code)]
+#[derive(Debug)]
+struct Ownership {
+    str2: String,
+    str3: String,
+}
+fn ownership() -> Ownership {
+    // 1. each value has an owner
+    // 2. there is only one owner at a time
+    // 3. when the owner goes out of scope the value disapears too
+
+    // only one can point to a reference
+    let str1 = String::from("hello world");
+    let str2 = str1;
+    let str3 = str2.clone();
+    // this causes problems because str1 no longer point to "hello world"
+    // println!("{}", str1);
+
+    return Ownership { str2, str3 };
+}
 
 fn print_str(x: String) {
     println!("{}", x);
@@ -44,98 +61,100 @@ fn change(some_string: &mut String) {
 }
 
 pub fn demo() {
-    // only one can point to a reference
-    let str1 = String::from("hello world");
-    let str2 = str1;
-    let str3 = str2.clone();
-    // this causes problems
-    // println!("{}", str1);
-    println!("{}{}", str2, str3);
-
+    println!("ownership: {:?}", ownership())
     // print_str(str1);
     // problem because it got moved to function
     // println!("{}",str1)
 
-    let mut str4: String = String::from("test ");
-    change_string(&mut str4);
-    print_str(str4);
+    // let mut str4: String = String::from("test ");
+    // change_string(&mut str4);
+    // print_str(str4);
 
-    let str5 = print_return_str(str3);
-    print_return_str(str5);
-    // let str4 = print_return_str(str1)
+    // let str5 = print_return_str(str3);
+    // print_return_str(str5);
+    // // let str4 = print_return_str(str1)
 
-    let a = String::from("test");
-    {
-        let b = a;
-        println!("{}", b)
+    // let a = String::from("test");
+    // {
+    //     let b = a;
+    //     println!("{}", b)
+    // }
+    // // can do this because ownership was moved to b
+    // // println!("{}", a);
+
+    // // stack, heep
+
+    // let x = Box::new(45);
+    // {
+    //     let y = x;
+    //     println!("{}", y);
+    // }
+    // // cant do this because everthing is on the heep
+    // // println!("{}", x);
+
+    // let g = 42;
+    // {
+    //     let h = g;
+    //     println!("{}", h);
+    // }
+    // // this is fine because values are on the stack
+    // println!("{}", g);
+
+    // // v is the owner of vector
+    // let v = vec![1, 2, 3];
+    // // v2 is now the owner
+    // let v2 = v;
+    // println!("{:?}", v2);
+
+    // print_vector(&v2);
+
+    // println!("{:?}", v2);
+
+    // let mut m = vec![1, 2, 3];
+
+    // mod_vector(&mut m);
+
+    // print_vector(&m);
+    // // borrowing
+    // let boss = Person {
+    //     name: String::from("Elon Must"),
+    // };
+    // let tesla = Company {
+    //     name: String::from("Tesla"),
+    //     ceo: &boss,
+    // };
+
+    // println!("{}{}", tesla.name, tesla.ceo.name);
+
+    // // actual copy of the data
+    // let s1 = String::from("hello");
+    // let s2 = s1.clone();
+
+    // println!("s1 = {}, s2 = {}", s1, s2);
+
+    // // stack only copy,
+    // let x = 5;
+    // let y = x;
+
+    // println!("x = {}, y = {}", x, y);
+
+    // // pass by reference
+    // let s1 = String::from("hello");
+    // let len = calculate_lenght(&s1);
+
+    // println!("The length of '{}' is {}.", s1, len);
+
+    // // mutable reference
+    // let mut s = String::from("hello");
+
+    // change(&mut s);
+}
+#[cfg(test)]
+mod ownership_tests {
+    use super::*;
+    #[test]
+    fn test_ownership() {
+        let result = ownership();
+        assert_eq!(result.str2, "hello world");
     }
-    // can do this because ownership was moved to b
-    // println!("{}", a);
-
-    // stack, heep
-
-    let x = Box::new(45);
-    {
-        let y = x;
-        println!("{}", y);
-    }
-    // cant do this because everthing is on the heep
-    // println!("{}", x);
-
-    let g = 42;
-    {
-        let h = g;
-        println!("{}", h);
-    }
-    // this is fine because values are on the stack
-    println!("{}", g);
-
-    // v is the owner of vector
-    let v = vec![1, 2, 3];
-    // v2 is now the owner
-    let v2 = v;
-    println!("{:?}", v2);
-
-    print_vector(&v2);
-
-    println!("{:?}", v2);
-
-    let mut m = vec![1, 2, 3];
-
-    mod_vector(&mut m);
-
-    print_vector(&m);
-    // borrowing
-    let boss = Person {
-        name: String::from("Elon Must"),
-    };
-    let tesla = Company {
-        name: String::from("Tesla"),
-        ceo: &boss,
-    };
-
-    println!("{}{}", tesla.name, tesla.ceo.name);
-
-    // actual copy of the data
-    let s1 = String::from("hello");
-    let s2 = s1.clone();
-
-    println!("s1 = {}, s2 = {}", s1, s2);
-
-    // stack only copy,
-    let x = 5;
-    let y = x;
-
-    println!("x = {}, y = {}", x, y);
-
-    // pass by reference
-    let s1 = String::from("hello");
-    let len = calculate_lenght(&s1);
-
-    println!("The length of '{}' is {}.", s1, len);
-
-    // mutable reference
-    let mut s = String::from("hello");
-
-    change(&mut s);
 }
