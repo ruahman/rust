@@ -59,11 +59,3 @@ fn main() {
     // reference_counter::demo();
     // guess_random_number::demo();
 }
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4)
-    }
-}
