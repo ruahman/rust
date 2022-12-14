@@ -1,5 +1,5 @@
 pub fn demo() {
-    println!("----- hello slices -----");
+    println!("--- slices ---");
 
     let s = String::from("hello world");
     let hello = &s[0..5];
@@ -13,4 +13,13 @@ pub fn demo() {
     let a = [1, 2, 3, 4, 5];
     let slice = &a[1..4];
     println!("{:?}", slice);
+}
+
+#[cfg(test)]
+mod slices_tests {
+    use super::*;
+    #[test]
+    fn test_slice() {
+        demo();
+    }
 }

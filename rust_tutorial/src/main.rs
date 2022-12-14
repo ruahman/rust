@@ -18,7 +18,7 @@ mod ownership;
 // mod reference_counter;
 // mod smart_pointers;
 // mod strings;
-// mod slices;
+mod slices;
 // mod structs;
 // mod threads;
 // mod traits;
@@ -36,7 +36,7 @@ fn main() {
     arrays::demo();
     conditions::demo();
     ownership::demo();
-    // slices::demo();
+    slices::demo();
     // print::demo();
     // types::demo();
     // strings::demo();

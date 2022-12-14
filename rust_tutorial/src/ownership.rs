@@ -137,6 +137,7 @@ fn change(some_string: &mut String) {
 pub fn demo() {
     println!("ownership: {:?}", ownership())
 }
+
 #[cfg(test)]
 mod ownership_tests {
     use super::*;
