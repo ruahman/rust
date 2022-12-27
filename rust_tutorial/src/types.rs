@@ -1,5 +1,4 @@
-// constant value and replaces it with the value when every it's called,
-// makes sence that this is global
+// constant value and replaces it with the value when ever it's called,
 const PI: f64 = 3.14;
 
 // constant memory address then anyone can get
@@ -12,7 +11,8 @@ pub fn demo() {
     let xi: i64 = 44;
     println!("{}{}{}", x, y, xi);
 
-    // if you want variable to be mutable
+    // if you want variable to be mutable,
+    // you must use the mutable char
     let mut b: i8 = 0;
     println!("{}", b);
     b = 75;
@@ -20,6 +20,7 @@ pub fn demo() {
 
     // constants
     println!("{}", PI);
+
     // access to a global peice of memory where a buch of thread can acccess,
     // is considered unsafe.
     unsafe {
