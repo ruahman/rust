@@ -14,16 +14,16 @@ mod ownership;
 mod pointers_ref;
 mod print;
 mod reference_counter;
+mod slices;
 mod smart_pointers;
 mod strings;
-mod slices;
 mod structs;
 mod threads;
 mod traits;
 mod tuple;
 mod types;
-mod vectors;
 mod vars;
+mod vectors;
 // mod guess_random_number;
 // mod io;
 

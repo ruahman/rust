@@ -53,7 +53,7 @@ fn vars() -> MutVars {
 #[allow(unused_variables)]
 pub fn demo() {
     println!("--- demo variables ---");
-
+    
     println!("get_rand_num: {}", get_rand_num());
     println!("vars: {:?}", vars());
 }
