@@ -24,12 +24,13 @@
 // mod types;
 mod vars;
 // mod vectors;
-// mod guess_random_number;
+mod guess_random_number;
 // mod io;
 
 fn main() {
     println!("***** rust tutorial *****");
 
+    guess_random_number::demo();
     vars::demo();
     // io::demo();
     // tuple::demo();
@@ -57,5 +58,4 @@ fn main() {
     // options::demo();
     // collections::demo();
     // reference_counter::demo();
-    // guess_random_number::demo();
 }
