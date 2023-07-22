@@ -22,16 +22,16 @@
 // mod traits;
 // mod tuple;
 // mod types;
-mod vars;
+mod variables;
 // mod vectors;
-mod guess_random_number;
+// mod guess_random_number;
 // mod io;
 
 fn main() {
     println!("***** rust tutorial *****");
 
-    guess_random_number::demo();
-    vars::demo();
+    // guess_random_number::demo();
+    variables::exec();
     // io::demo();
     // tuple::demo();
     // arrays::demo();
