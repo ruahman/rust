@@ -24,14 +24,32 @@
 // mod types;
 mod variables;
 // mod vectors;
-// mod guess_random_number;
+mod guess_random_number;
 // mod io;
+use clap::Parser;
 
+#[derive(Parser, Debug)]
+struct Cli {
+    #[arg(short, long)]
+    guess: bool,
+
+    #[arg(short, long)]
+    variables: bool,
+}
+
+// cargo run -- --help
 fn main() {
-    println!("***** rust tutorial *****");
+    let args = Cli::parse();
+    if args.guess {
+        guess_random_number::exec();
+    } else if args.variables {
+        variables::exec();
+    } else {
+        println!("Please specify a subcommand");
+    }
 
     // guess_random_number::demo();
-    variables::exec();
+    // variables::exec();
     // io::demo();
     // tuple::demo();
     // arrays::demo();
