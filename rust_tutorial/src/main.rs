@@ -22,6 +22,7 @@
 // mod traits;
 // mod tuple;
 // mod types;
+mod data_types;
 mod variables;
 // mod vectors;
 mod guess_random_number;
@@ -35,15 +36,20 @@ struct Cli {
 
     #[arg(short, long)]
     variables: bool,
+
+    #[arg(short, long)]
+    data_types: bool,
 }
 
 // cargo run -- --help
 fn main() {
     let args = Cli::parse();
     if args.guess {
-        guess_random_number::exec();
+        guess_random_number::run();
     } else if args.variables {
         variables::exec();
+    } else if args.data_types {
+        data_types::exec();
     } else {
         println!("Please specify a subcommand");
     }

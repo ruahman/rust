@@ -2,7 +2,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
-pub fn exec() {
+pub fn run() {
     println!("***** guess random number *****");
     println!("Guess the number!");
 
