@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-pub fn demo() {
+pub fn exec() {
     // vectors
     let mut a = Vec::new();
     a.push(1);
@@ -50,5 +50,16 @@ pub fn demo() {
     // this is better
     for x in vec.iter() {
         println!("{}", x);
+    }
+}
+
+// cargo test variables::tests -- --nocapture
+#[cfg(test)]
+mod tests {
+    use super::exec;
+
+    #[test]
+    fn test_conditions() {
+        exec()
     }
 }

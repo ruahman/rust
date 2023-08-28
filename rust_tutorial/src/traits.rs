@@ -110,7 +110,7 @@ fn print_it_dynamic(z: &dyn Printable) {
     z.p();
 }
 
-pub fn demo() {
+pub fn exec() {
     let rec: Rectangle = Shape::new(44.5, 66.7);
     let circle: Circle = Shape::new(22.2, 77.7);
     println!("{}{}", rec.length, rec.width);
@@ -130,4 +130,15 @@ pub fn demo() {
 
     // static dispatch: the decision of which method to call is determined
     // staticaly
+}
+
+// cargo test variables::tests -- --nocapture
+#[cfg(test)]
+mod tests {
+    use super::exec;
+
+    #[test]
+    fn test_exec() {
+        exec()
+    }
 }

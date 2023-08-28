@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
-pub fn demo() {
+#[allow(dead_code)]
+pub fn exec() {
     let mut heroes: HashMap<&str, &str> = HashMap::new();
     heroes.insert("superman", "clark");
     heroes.insert("batman", "bruse");
@@ -16,5 +17,16 @@ pub fn demo() {
             Some(x) => println!("{}", x),
             None => println!("nothing"),
         }
+    }
+}
+
+// cargo test hashmaps::tests -- --nocapture
+#[cfg(test)]
+mod tests {
+    use super::exec;
+
+    #[test]
+    fn test_exec() {
+        exec()
     }
 }

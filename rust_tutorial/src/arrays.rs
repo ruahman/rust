@@ -2,20 +2,21 @@ use std::mem;
 
 static X: [i32; 5] = [1, 2, 3, 4, 5];
 
-#[allow(dead_code)]
-#[derive(Debug)]
-struct Arrays {
-    numbers: [i32; 5],
-    slice: &'static [i32],
-}
-
 // This function borrows a slice.
 fn analyze_slice(slice: &[i32]) {
     println!("First element of the slice: {}", slice[0]);
     println!("The slice has {} elements", slice.len());
 }
 
-fn arrays<'a>() -> Arrays {
+#[allow(dead_code)]
+#[allow(unused_variables)]
+pub fn exec<'a>() {
+    //// arrays
+    let arrys: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("arrys: {:?}", arrys);
+    println!("item 1: {}", arrys[0]);
+    println!("arrys len: {}", arrys.len());
+
     // arrays have a fixed lenght
     let numbers: [i32; 5] = [1, 2, 3, 4, 5];
 
@@ -24,8 +25,8 @@ fn arrays<'a>() -> Arrays {
 
     // this doesn't work
     // let slice: &[i32] = X[1..3]
-    
-    // Fixed-size array 
+
+    // Fixed-size array
     let xs: [i32; 5] = [1, 2, 3, 4, 5];
 
     // All elements can be initialized to the same value.
@@ -50,40 +51,29 @@ fn arrays<'a>() -> Arrays {
     // `starting_index` is the first position in the slice.
     // `ending_index` is one more than the last position in the slice.
     println!("Borrow a section of the array as a slice.");
-    analyze_slice(&ys[1 .. 4]);
+    analyze_slice(&ys[1..4]);
 
     // Arrays can be safely accessed using `.get`, which returns an
     // `Option`. This can be matched as shown below, or used with
     // `.expect()` if you would like the program to exit with a nice
     // message instead of happily continue.
-    for i in 0..xs.len() + 1 { // Oops, one element too far!
+    for i in 0..xs.len() + 1 {
+        // Oops, one element too far!
         match xs.get(i) {
             Some(xval) => println!("{}: {}", i, xval),
             None => println!("Slow down! {} is too far!", i),
         }
     }
 
-    return Arrays { numbers, slice };
-}
-
-#[allow(unused_variables)]
-pub fn demo() {
-    println!("--- arrays ---");
-
-    println!("arrays: {:?}", arrays());
+    // return Arrays { numbers, slice };
 }
 
 #[cfg(test)]
-mod arrays_tests {
+mod tests {
     use super::*;
-    use std::mem;
 
     #[test]
     fn test_arrays() {
-        let res = arrays();
-        assert_eq!(res.numbers, [1, 2, 3, 4, 5]);
-        assert_eq!(res.numbers.len(), 5);
-        assert_eq!(mem::size_of_val(&res.numbers), 20);
-        assert_eq!(res.slice.len(), 2)
+        exec();
     }
 }

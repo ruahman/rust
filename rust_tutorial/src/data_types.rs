@@ -37,6 +37,13 @@ pub fn exec() {
     // characters
     let a: char = 'a';
     println!("a: {}", a);
+
+    //// cast 
+
+    let int_u8 = 5;
+    let int2_u8 = 4;
+    let int3_u32 = (int_u8 as u32) + (int2_u8 as u32);
+    println!("int3_u32: {}",int3_u32);
 }
 
 // cargo test variables::tests -- --nocapture
@@ -45,7 +52,7 @@ mod tests {
     use super::exec;
 
     #[test]
-    fn test_data_types() {
+    fn test_exec() {
         exec()
     }
 }

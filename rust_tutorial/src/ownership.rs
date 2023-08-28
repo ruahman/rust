@@ -8,7 +8,14 @@ struct Ownership {
     v2: Vec<i32>,
     m: Vec<i32>,
 }
-fn ownership() -> Ownership {
+
+#[allow(dead_code)]
+#[allow(unused_variables)]
+fn exec() -> Ownership {
+    let str1 = String::from("hello world");
+    let str2 = str1; // change ownership
+    let str3 = str2.clone(); // clone
+
     // 1. each value has an owner
     // 2. there is only one owner at a time
     // 3. when the owner goes out of scope the value disapears too
@@ -134,16 +141,12 @@ fn change(some_string: &mut String) {
     some_string.push_str(", world");
 }
 
-pub fn demo() {
-    println!("ownership: {:?}", ownership())
-}
-
 #[cfg(test)]
-mod ownership_tests {
-    use super::*;
+mod tests {
+    use super::exec;
     #[test]
-    fn test_ownership() {
-        let result = ownership();
+    fn test_exec() {
+        let result = exec();
         assert_eq!(result.str2, "hello world");
         assert_eq!(result.str6, "test is happy");
         assert_eq!(result.g, 42);

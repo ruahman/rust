@@ -1,12 +1,15 @@
 #[allow(dead_code)]
-#[derive(Debug)]
-struct Tuples {
-    person: (&'static str, &'static str, i8),
-    x: i32,
-    y: f64,
-    z: i32,
-}
-fn tuples() -> Tuples {
+#[allow(unused_variables)]
+pub fn exec() {
+    //// tuple
+
+    let my_tuple: (u8, String, f64) = (42, String::from("diego"), 3.14);
+    println!("my_tuple: {:?}", my_tuple);
+    println!("my_tuple: {}, {}, {}", my_tuple.0, my_tuple.1, my_tuple.2);
+
+    let (age, name, pi) = my_tuple;
+    println!("age: {}, name: {}, pi: {}", age, name, pi);
+
     let person: (&str, &str, i8) = ("diego", "vila", 41);
     println!("{}:{}:{}", person.0, person.1, person.2);
 
@@ -26,7 +29,7 @@ fn tuples() -> Tuples {
     // Tuples can be tuple members.
     let tuple_of_tuples = ((1u8, 2u16, 2u32), (4u64, -1i8), -2i16);
 
-     // Tuples are printable.
+    // Tuples are printable.
     println!("tuple of tuples: {:?}", tuple_of_tuples);
 
     let pair = (1, true);
@@ -48,7 +51,7 @@ fn tuples() -> Tuples {
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{:?}", matrix);
 
-    return Tuples { person, x, y, z };
+    // return Tuples { person, x, y, z };
 }
 
 // Tuples can be used as function arguments and as return values.
@@ -63,24 +66,12 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
 #[derive(Debug)]
 struct Matrix(f32, f32, f32, f32);
 
-pub fn demo() {
-    println!("--- tuple demo ---");
-
-    println!("tuple: {:?}", tuples());
-}
-
 #[cfg(test)]
-mod tuples_tests {
+mod tests {
     use super::*;
 
     #[test]
-    fn test_tuples() {
-        let res = tuples();
-        assert_eq!(res.person.0, "diego");
-        assert_eq!(res.person.1, "vila");
-        assert_eq!(res.person.2, 41);
-        assert_eq!(res.x, 500);
-        assert_eq!(res.y, 6.4);
-        assert_eq!(res.z, 1);
+    fn test_exec() {
+        exec();
     }
 }

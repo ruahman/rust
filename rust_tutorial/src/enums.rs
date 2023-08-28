@@ -23,7 +23,43 @@ fn move_test(m: Movement) {
     }
 }
 
-pub fn demo() {
+#[allow(dead_code)]
+#[allow(unused_variables)]
+pub fn exec() {
+    //// enums
+
+    enum Days {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday,
+    }
+
+    impl Days {
+        fn is_weekend(&self) -> bool {
+            match self {
+                Days::Saturday | Days::Sunday => return true,
+                _ => return false,
+            }
+        }
+    }
+
+    let today = Days::Sunday;
+    println!("Is today a weekend? {}", today.is_weekend());
+
+    match today {
+        Days::Monday => println!("Monday"),
+        Days::Tuesday => println!("Tuesday"),
+        Days::Wednesday => println!("Wednesday"),
+        Days::Thursday => println!("Thursday"),
+        Days::Friday => println!("Friday"),
+        Days::Saturday => println!("Saturday"),
+        Days::Sunday => println!("Sunday"),
+    }
+
     let avatar1 = Movement::Left;
     let avatar2 = Movement::Right;
     let avatar3 = Movement::Up;
@@ -46,5 +82,16 @@ pub fn demo() {
             blue,
             green: x,
         } => println!("{}{}{}", red, blue, x),
+    }
+}
+
+// cargo test variables::tests -- --nocapture
+#[cfg(test)]
+mod tests {
+    use super::exec;
+
+    #[test]
+    fn test_exec() {
+        exec()
     }
 }
