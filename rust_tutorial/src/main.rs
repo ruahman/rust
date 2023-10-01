@@ -1,4 +1,5 @@
 mod arrays;
+mod hello_world;
 // mod cli;
 // mod closures;
 // mod collections;
@@ -23,9 +24,9 @@ mod traits;
 mod tuple;
 // mod types;
 mod data_types;
+mod guess_random_number;
 mod variables;
 mod vectors;
-mod guess_random_number;
 // mod io;
 use clap::Parser;
 
@@ -78,6 +79,9 @@ struct Cli {
 
     #[arg(short, long)]
     modules: bool,
+
+    #[arg(long)]
+    hello_world: bool,
 }
 
 // cargo run -- --help
@@ -85,6 +89,8 @@ fn main() {
     let args = Cli::parse();
     if args.guess {
         guess_random_number::run();
+    } else if args.hello_world {
+        hello_world::exec();
     } else if args.variables {
         variables::exec();
     } else if args.data_types {
@@ -106,7 +112,7 @@ fn main() {
     } else if args.functions {
         functions::exec()
     } else if args.generics {
-        generics::exec()  
+        generics::exec()
     } else if args.hashmaps {
         hashmaps::exec()
     } else if args.structs {
@@ -115,7 +121,7 @@ fn main() {
         traits::exec()
     } else if args.modules {
         modules::exec()
-    }else {
+    } else {
         println!("Please specify a subcommand");
     }
 
