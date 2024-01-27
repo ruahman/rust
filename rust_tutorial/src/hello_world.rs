@@ -1,14 +1,16 @@
-pub fn exec() {
+#![allow(dead_code)]
+#![allow(unused_imports)]
+
+pub fn run() {
     println!("Hello, world!");
 }
 
-// cargo test hello_world::tests -- --nocapture
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_hello_world() {
+        run()
     }
 }

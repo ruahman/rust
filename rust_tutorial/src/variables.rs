@@ -1,69 +1,109 @@
-use std::io;
-
 #[allow(unused_assignments)]
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused_mut)]
+use std::mem;
 
-pub fn exec() {
+// this is computed at compile time
+const MEANING_OF_LIFE: u8 = 42; // no fixed address
 
-    //// variables
-    // once a variable is set it does not change
-    let x = "this should not change";
-    // x = "cant't do this"
-    println!("x: {}", x);
+// static variables have fixed address
+static Z: i32 = 123; // this has an address
 
-    //// mutable variables
-    let mut age = 37;
-    age = 40;
-    println!("age: {}", age);
+pub fn run() {
+    let a: u8 = 123; // unsigned 8 bits
+    println!("a: {}", a); // immutable
 
-    let mut name = String::from("Diego");
-    name = String::from("Brad");
+    // can't do this
+    // a = 456;
 
-    // read line
-    println!("Enter your name: ");
-    io::stdin().read_line(&mut name).expect("Failed to read line");
+    let mut b: i8 = 0; // signed 8 bits mutable
+    println!("b: {}", b);
+    b = 42;
+    println!("b: {}", b);
 
-    let geeting = "hello world";
-    println!("name: {}: {}", name.trim(), geeting);
+    // type inference
+    let c = 123456789; // 32-bit signed i32
+    println!("c: {}, size: {} bytes", c, mem::size_of_val(&c));
 
-    //// constants
-    // this is assigned at compile time
-    const ONE_MIL: u32 = 1_000_000;
-    const PI: f32 = 3.14;
+    // usize isize default size of your system
+    let z: isize = 123;
+    let size_of_z = mem::size_of_val(&z);
+    println!(
+        "z: {}, takes up {} bytes, {}-bit OS",
+        z,
+        size_of_z,
+        size_of_z * 8
+    );
 
-    //// shadowing
-    let age = "42";
-    // this shadows the previous age variable
-    let mut age: u32 = age.trim().parse().expect("age was not a number");
-    age = age + 1;
-    println!("age: {}, mil: {}, pi: {}", age, ONE_MIL, PI);
+    // char
+    let d: char = 'x';
+    println!("d: {}, size: {} bytes", d, mem::size_of_val(&d));
 
-    // deconstruct
-    let (name, age) = ("Brad", 37);
-    println!("name: {}", name);
+    // f32 f64
+    let e: f32 = 2.5;
+    println!("e: {}, size: {} bytes", e, mem::size_of_val(&e));
 
-    println!("age: {}", age);
+    // boolean
+    let g: bool = false;
+    println!("g: {}, size: {} bytes", g, mem::size_of_val(&g));
 
-    // shadowing
-    let y = 5;
-    let y = y + 1;
-    println!("y: {}", y);
+    // scope and shadowing
+    let a = 123;
     {
-        let y = y * 2;
-        println!("y: {}", y);
+        let b = 456;
+        println!("inside, b: {}", b);
+
+        // this shadows the previous a variable
+        let a = 777;
+        println!("inside, a: {}", a);
     }
-    println!("y: {}", y);
+    println!("outside, a: {}", a);
+
+    // constants
+    println!("MEANING_OF_LIFE: {}", MEANING_OF_LIFE);
+    println!("Z: {}", Z);
+
+    // stack and heap
+    // stack is allocated when calling the function, it's freed when the function returns
+    // when you declare a variable, it's stored on the stack, it's calulated ahead of time.
+    // it checks the function to find out how much space it needs and then it allocates that space
+
+    // heap is allocated when we need it, it's freed when we explicitly return it to the OS,
+    // heep returns a pointer to the memory address
+
+    struct Point {
+        x: f64,
+        y: f64,
+    }
+
+    fn origin() -> Point {
+        Point { x: 0.0, y: 0.0 }
+    }
+
+    // stack allocated
+    let p1 = origin();
+    println!("p1 takes up {} bytes", mem::size_of_val(&p1));
+
+    // heap allocated
+    let p2 = Box::new(origin());
+    // p2 is just a pointer so it's smaller
+    println!("p2 takes up {} bytes", mem::size_of_val(&p2));
+
+    // // deconstruct
+    // let (name, age) = ("Brad", 37);
+    // println!("name: {}", name);
+    //
+    // println!("age: {}", age);
 }
 
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_variables() {
+        run()
     }
 }
