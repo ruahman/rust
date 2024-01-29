@@ -1,29 +1,23 @@
 use std::cmp::Ordering;
 
-#[allow(dead_code)]
 #[allow(unused_variables)]
-#[allow(unused_assignments)]
-pub fn exec() {
+
+pub fn run() {
     //// if statements
     let age = 42;
+
     if (age > 1) && (age < 21) {
         println!("You can't drink");
-    } else {
+    } else if (age >= 21) && (age < 65) {
         println!("You can drink");
-    }
-
-    let less_than_20: bool;
-    let x = 18;
-
-    if x < 20 {
-        less_than_20 = true
     } else {
-        less_than_20 = false
+        println!("You can't drink anymore");
     }
 
     //// ternary operators
     let can_vote = if age >= 18 { true } else { false };
 
+    let x = 3;
     let inline_bool = if x < 18 { true } else { false };
 
     //// match
@@ -34,6 +28,50 @@ pub fn exec() {
         _ => println!("default"),
     }
 
+    //// loops
+    let mut x = 1;
+    while x < 1000 {
+        x *= 2;
+        if x == 64 {
+            continue;
+        }
+        println!("while x = {}", x);
+    }
+
+    let mut y = 1;
+    loop {
+        y *= 2;
+        if y > 1000 {
+            break;
+        }
+        println!("while y = {}", y);
+    }
+
+    for x in 1..11 {
+        if x == 3 {
+            continue;
+        }
+        if x == 8 {
+            break;
+        }
+        println!("for x = {}", x);
+    }
+
+    for (idx, val) in (30..41).enumerate() {
+        println!("idx = {}, val = {}", idx, val);
+    }
+
+    //// match
+    let country_code = 44;
+    let country = match country_code {
+        44 => "UK",
+        46 => "Sweden",
+        7 => "Russia",
+        1..=999 => "unknown",
+        _ => "invalid",
+    };
+    println!("country = {}", country);
+
     let my_age = 43;
     let voting_age = 18;
 
@@ -42,14 +80,6 @@ pub fn exec() {
         Ordering::Greater => println!("can vote"),
         Ordering::Equal => println!("can vote"),
     }
-
-    let young_man: bool;
-
-    let age: i32 = 41;
-    match age {
-        1..=39 => young_man = true,
-        _ => young_man = false,
-    };
 }
 
 // cargo test variables::tests -- --nocapture
@@ -57,7 +87,7 @@ pub fn exec() {
 mod tests {
     use super::*;
     #[test]
-    fn condition_test() {
-        exec();
+    fn test_conditions() {
+        run();
     }
 }

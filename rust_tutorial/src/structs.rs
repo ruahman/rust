@@ -1,3 +1,25 @@
+#[allow(dead_code)]
+#[allow(unused_variables)]
+
+struct Point {
+    x: f64,
+    y: f64,
+}
+
+struct Line {
+    start: Point,
+    end: Point,
+}
+
+#[allow(unused_variables)]
+fn stuctures() {
+    let p = Point { x: 3.0, y: 4.0 };
+    println!("point p is at ({}, {})", p.x, p.y);
+
+    let p2 = Point { x: 5.0, y: 10.0 };
+    let my_line = Line { start: p, end: p2 };
+}
+
 struct Color {
     red: u8,
     green: u8,
@@ -29,22 +51,21 @@ impl Person {
     }
 }
 
-#[allow(dead_code)]
 struct Customer {
     name: String,
     address: String,
     balance: f32,
 }
 
-#[allow(dead_code)]
 struct Rectangle<T, U> {
     width: T,
     height: U,
 }
 
-#[allow(dead_code)]
 #[allow(unused_variables)]
-pub fn exec() {
+pub fn run() {
+    stuctures();
+
     let mut bob = Customer {
         name: String::from("bob"),
         address: String::from("123 main"),
@@ -79,10 +100,10 @@ pub fn exec() {
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_structs() {
+        run()
     }
 }

@@ -15,9 +15,9 @@ clean:
 
 .PHONY: test
 test: 
-ifdef t
-	@echo "Running $(t) tests..."
-	cargo test $(t)::tests -- --nocapture
+ifdef t 
+	@echo "Running test $(t)"
+	cargo test $(t) -- --nocapture
 else
 	@echo "Running tests..."
 	cargo test
