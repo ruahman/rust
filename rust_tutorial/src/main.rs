@@ -1,10 +1,8 @@
-#![allow(dead_code)]
-#![allow(unused_imports)]
-
 mod conditions;
 mod enumerations;
 mod hello_world;
 mod structs;
+mod unions;
 mod variables;
 
 fn main() {
@@ -13,4 +11,5 @@ fn main() {
     conditions::run();
     variables::run();
     enumerations::run();
+    unions::run();
 }
