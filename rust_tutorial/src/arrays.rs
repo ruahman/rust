@@ -10,7 +10,26 @@ fn analyze_slice(slice: &[i32]) {
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
-pub fn exec<'a>() {
+pub fn run() {
+    let mut a: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("a len: {}", a.len());
+    a[0] = 123;
+    println!("a[0]: {}", a[0]);
+    // print the whole array
+    println!("a: {:?}", a);
+
+    for i in 0..a.len() {
+        println!("a[{}]: {}", i, a[i]);
+    }
+
+    let mtx: [[f32; 3]; 2] = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]];
+
+    for i in 0..mtx.len() {
+        for j in 0..mtx[i].len() {
+            println!("mtx[{}][{}]: {}", i, j, mtx[i][j]);
+        }
+    }
+
     //// arrays
     let arrys: [i32; 5] = [1, 2, 3, 4, 5];
     println!("arrys: {:?}", arrys);
@@ -74,6 +93,6 @@ mod tests {
 
     #[test]
     fn test_arrays() {
-        exec();
+        run();
     }
 }

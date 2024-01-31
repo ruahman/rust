@@ -1,4 +1,5 @@
-pub fn demo() {
+pub fn run() {
+    // it's either someting or nothing
     let r = Some(32);
 
     match r {
@@ -10,5 +11,14 @@ pub fn demo() {
 
     if let Some(z) = r2 {
         println!("{:?}", z);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_options() {
+        run();
     }
 }
