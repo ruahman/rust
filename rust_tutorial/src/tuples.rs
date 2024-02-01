@@ -1,6 +1,6 @@
 #[allow(dead_code)]
 #[allow(unused_variables)]
-pub fn exec() {
+pub fn run() {
     //// tuple
 
     let my_tuple: (u8, String, f64) = (42, String::from("diego"), 3.14);
@@ -71,7 +71,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_exec() {
-        exec();
+    fn test_tuple() {
+        run();
     }
 }

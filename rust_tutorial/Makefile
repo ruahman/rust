@@ -8,6 +8,11 @@ run:
 	@echo "Running..."
 	cargo run
 
+.PHONY: lint 
+lint:
+	@echo "Linting..."
+	cargo check
+
 .PHONY: clean
 clean:
 	@echo "Cleaning..."

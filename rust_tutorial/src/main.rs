@@ -4,6 +4,7 @@ mod enumerations;
 mod hello_world;
 mod options;
 mod structs;
+mod tuples;
 mod unions;
 mod variables;
 
@@ -16,4 +17,5 @@ fn main() {
     unions::run();
     options::run();
     arrays::run();
+    tuples::run();
 }

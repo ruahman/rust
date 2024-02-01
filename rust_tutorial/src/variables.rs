@@ -10,6 +10,7 @@ const MEANING_OF_LIFE: u8 = 42; // no fixed address
 // static variables have fixed address
 static Z: i32 = 123; // this has an address
 
+#[allow(dead_code)]
 pub fn run() {
     let a: u8 = 123; // unsigned 8 bits
     println!("a: {}", a); // immutable
