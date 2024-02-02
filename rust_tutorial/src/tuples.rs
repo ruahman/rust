@@ -1,7 +1,27 @@
 #[allow(dead_code)]
 #[allow(unused_variables)]
+
+fn sum_and_product(x: i32, y: i32) -> (i32, i32) {
+    (x + y, x * y)
+}
+
+#[allow(unused_variables)]
 pub fn run() {
     //// tuple
+    let x = 3;
+    let y = 4;
+    let sp = sum_and_product(x, y);
+    println!("sp: {:?}", sp);
+
+    // in order to access the values of the tuple, we can use the dot notation
+    println!("{0},{1}", sp.0, sp.1);
+
+    // use destructuring, if you don't like the dot notation
+    let (a, b) = sp;
+    println!("a: {}, b: {}", a, b);
+
+    let foo = (true, 42.0, -1i8);
+    println!("foo: {:?}", foo);
 
     let my_tuple: (u8, String, f64) = (42, String::from("diego"), 3.14);
     println!("my_tuple: {:?}", my_tuple);
