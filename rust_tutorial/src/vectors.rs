@@ -1,12 +1,15 @@
 #[allow(unused_variables)]
 #[allow(dead_code)]
-pub fn exec() {
+pub fn run() {
     //// vector
 
-    let vec1: Vec<i32> = Vec::new();
+    // a vector is something that grows dynamically
+    // vector must be mutable to push
     let mut vec2 = vec![1, 2, 3];
     vec2.push(4);
     println!("fst: {}", vec2[0]);
+
+    // get returns an option type
     match vec2.get(1) {
         Some(x) => println!("snd: {}", x),
         None => println!("none"),
@@ -25,8 +28,10 @@ pub fn exec() {
 
     println!("{:?}", numbers);
 
-    numbers.pop();
-    numbers.pop();
+    let pop = numbers.pop();
+    if let Some(x) = pop {
+        println!("Popped: {}", x);
+    }
 
     println!("{:?}", numbers);
 
@@ -44,10 +49,10 @@ pub fn exec() {
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_vectors() {
+        run()
     }
 }

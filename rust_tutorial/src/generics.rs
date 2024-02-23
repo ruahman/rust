@@ -1,5 +1,6 @@
 use std::ops::Add;
 
+// this function will work with any type that implements the Add trait
 #[allow(dead_code)]
 fn get_sum_gen<T: Add<Output = T>>(x: T, y: T) -> T {
     return x + y;
@@ -13,20 +14,22 @@ struct Point<T> {
 }
 
 #[allow(dead_code)]
-pub fn exec() {
+pub fn run() {
     println!("{}", get_sum_gen(2, 2));
     println!("{}", get_sum_gen(2.2, 2.2));
-    let a = Point { x: 1, y: 2 };
+    let a: Point<i32> = Point { x: 1, y: 2 };
+    let b: Point<f32> = Point { x: 1.1, y: 2.2 };
     println!("{:?}", a);
+    println!("{:?}", b);
 }
 
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::*;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_generics() {
+        run()
     }
 }
