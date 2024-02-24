@@ -1,7 +1,17 @@
 use std::collections::HashMap;
 
 #[allow(dead_code)]
-pub fn exec() {
+pub fn run() {
+    let mut shapes = HashMap::new();
+    shapes.insert(String::from("triangle"), 3);
+    shapes.insert(String::from("square"), 4);
+    // force string literal to be a String
+    shapes.insert("pentagon".into(), 5);
+
+    // convert "square" to a proper String
+    println!("A square has {} sides", shapes["square".into()]);
+    println!("shapes: {:?}", shapes);
+
     let mut heroes: HashMap<&str, &str> = HashMap::new();
     heroes.insert("superman", "clark");
     heroes.insert("batman", "bruse");
@@ -20,13 +30,12 @@ pub fn exec() {
     }
 }
 
-// cargo test hashmaps::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_hashmap() {
+        run()
     }
 }

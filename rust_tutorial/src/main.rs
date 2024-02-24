@@ -2,6 +2,8 @@ mod arrays;
 mod conditions;
 mod enumerations;
 mod generics;
+mod hashmaps;
+mod hashsets;
 mod hello_world;
 mod options;
 mod pattern_matching;
@@ -23,4 +25,6 @@ fn main() {
     tuples::run();
     pattern_matching::run();
     generics::run();
+    hashmaps::run();
+    hashsets::run();
 }
