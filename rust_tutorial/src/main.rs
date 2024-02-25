@@ -5,6 +5,7 @@ mod generics;
 mod hashmaps;
 mod hashsets;
 mod hello_world;
+mod iterators;
 mod options;
 mod pattern_matching;
 mod structs;
@@ -27,4 +28,5 @@ fn main() {
     generics::run();
     hashmaps::run();
     hashsets::run();
+    iterators::run();
 }
