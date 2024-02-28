@@ -5,6 +5,7 @@ mod generics;
 mod hello_world;
 mod options;
 mod pattern_matching;
+mod strings;
 mod structs;
 mod tuples;
 mod unions;
@@ -23,4 +24,5 @@ fn main() {
     tuples::run();
     pattern_matching::run();
     generics::run();
+    strings::run();
 }
