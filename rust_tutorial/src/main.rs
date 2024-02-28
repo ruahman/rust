@@ -2,7 +2,10 @@ mod arrays;
 mod conditions;
 mod enumerations;
 mod generics;
+mod hashmaps;
+mod hashsets;
 mod hello_world;
+mod iterators;
 mod options;
 mod pattern_matching;
 mod strings;
@@ -25,4 +28,7 @@ fn main() {
     pattern_matching::run();
     generics::run();
     strings::run();
+    hashmaps::run();
+    hashsets::run();
+    iterators::run();
 }
