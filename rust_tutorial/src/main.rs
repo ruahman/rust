@@ -1,11 +1,14 @@
 mod arrays;
+mod closures;
 mod conditions;
 mod enumerations;
+mod functions;
 mod generics;
 mod hashmaps;
 mod hashsets;
 mod hello_world;
 mod iterators;
+mod methods;
 mod options;
 mod pattern_matching;
 mod strings;
@@ -31,4 +34,7 @@ fn main() {
     hashmaps::run();
     hashsets::run();
     iterators::run();
+    functions::run();
+    methods::run();
+    closures::run();
 }

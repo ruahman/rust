@@ -5,7 +5,7 @@ where
     func(a, b)
 }
 
-pub fn demo() {
+pub fn run() {
     let can_vote = |age: i32| age >= 18;
     println!("{}", can_vote(42));
     let sum = |a, b| a + b;
@@ -17,9 +17,36 @@ pub fn demo() {
 
     let above_limit = greater_than(100);
     println!("{}", above_limit(10));
+
+    let plus_one = |x: i32| -> i32 { x + 1 };
+    let a = 6;
+    println!("{0} + 1 = {1}", a, plus_one(a));
+
+    let mut two = 6;
+    let plus_two = |x: i32| {
+        let mut result = x;
+        // two is borrowed here
+        result += two;
+        result
+    };
+    println!("{}", plus_two(3));
+
+    let borrow_two = &mut two;
+    println!("borrow_two {}", borrow_two);
 }
 
 fn greater_than(limit: u32) -> impl Fn(u32) -> bool {
     // lifetime of limit stays with clojure
+    // that way limit is not dropped
+    // this is when you create a function generator, a function that returns a function
     move |x| x > limit
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_clojures() {
+        run();
+    }
 }

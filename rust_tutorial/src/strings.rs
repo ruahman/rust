@@ -92,6 +92,11 @@ pub fn run() {
     // this string slice in alocated in the static memory
     let s: &'static str = "hello there!";
     println!("{}", s);
+
+    // format
+    let name = "Diego";
+    let greeting = format!("Hi, I'm {}", name);
+    println!("{}", greeting);
 }
 
 // cargo test strings::tests -- --nocapture

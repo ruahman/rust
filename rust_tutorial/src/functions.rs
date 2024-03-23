@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 fn increase(x: &mut i32) {
     *x += 1;
 }
@@ -21,7 +20,7 @@ fn sum_list(list: &[i32]) -> i32 {
 }
 
 #[allow(dead_code)]
-pub fn exec() {
+pub fn run() {
     //// functions
 
     say_hello();
@@ -44,6 +43,10 @@ pub fn exec() {
     let n3: i32 = 10;
     let add_num = |n1: i32, n2: i32| n1 + n2 + n3;
     println!("{}", add_num(1, 2));
+
+    let mut z = 5;
+    increase(&mut z);
+    println!("z: {}", z);
 }
 
 fn greetings(greet: &str, name: &str) {
@@ -57,10 +60,10 @@ fn add(x: i32, y: i32) -> i32 {
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_functions() {
+        run()
     }
 }
