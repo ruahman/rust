@@ -1,7 +1,7 @@
 use std::thread;
 use std::time::Duration;
 
-pub fn demo() {
+pub fn run() {
     let thread1 = thread::spawn(|| {
         for i in 1..25 {
             println!("thread: {}", i);
@@ -15,4 +15,13 @@ pub fn demo() {
     }
 
     thread1.join().unwrap();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_threads() {
+        run();
+    }
 }

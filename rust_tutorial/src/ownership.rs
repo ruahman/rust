@@ -1,6 +1,6 @@
 #[allow(dead_code)]
 #[derive(Debug)]
-struct Ownership {
+pub struct Ownership {
     str2: String,
     str3: String,
     str6: String,
@@ -11,7 +11,57 @@ struct Ownership {
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
-fn exec() -> Ownership {
+pub fn run() -> Ownership {
+    let v1 = vec![1, 2, 3];
+    // there is only one owner at a time, v2 is now the owner
+    let v2 = v1;
+    println!("{:?}", v2);
+    // this will cause an error because v1 no longer owns the vector
+    // compiler will complain, there can be only one, kinka like Highlander
+    // println!("{:?}", v1);
+
+    let u = 1;
+    let u2 = u;
+    // this works because u is on the stack
+    // and there is no borrow checking for values on the stack
+    // us is just a copy of u
+    println!("{},{}", u, u2);
+
+    // when you pass in a paramter to a function or closure
+    // the ownership is moved to the function or closure
+    // so you can no longer use it
+    // you have to return it back if you want to use it again
+    // this is why pass by refrerence is preferred
+    let print_vector = |x: Vec<i32>| -> Vec<i32> {
+        println!("{:?}", x);
+        x
+    };
+
+    let vv = vec![1, 2, 3];
+    // when you pass a vector to a function it gets moved
+    // so you can no longer use it
+    // so you have to return it back
+    let vv2 = print_vector(vv);
+
+    // pass by reference
+    let print_vector_ref = |x: &Vec<i32>| {
+        println!("{:?}", x);
+    };
+    let vvr = vec![1, 2, 3];
+    print_vector_ref(&vvr);
+    // can still use vvr because it was passed by reference
+    println!("{:?}", vvr);
+
+    // mutable refrences
+    // there can be only one mutable reference to a resource
+
+    let mut a = 40;
+    {
+        let b = &mut a;
+        *b += 2;
+    }
+    println!("{}", a);
+
     let str1 = String::from("hello world");
     let str2 = str1; // change ownership
     let str3 = str2.clone(); // clone
@@ -143,10 +193,10 @@ fn change(some_string: &mut String) {
 
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
     #[test]
-    fn test_exec() {
-        let result = exec();
+    fn test_ownership() {
+        let result = run();
         assert_eq!(result.str2, "hello world");
         assert_eq!(result.str6, "test is happy");
         assert_eq!(result.g, 42);

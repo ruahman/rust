@@ -1,4 +1,7 @@
-mod test {
+// define your modules here
+mod pizza_order;
+mod pizza_tester;
+mod pizza_inline {
     #[derive(Debug)]
     pub struct Pizza {
         pub dough: String,
@@ -12,49 +15,26 @@ mod test {
     }
 }
 
-mod pizza_order {
-    pub struct Pizza {
-        pub dough: String,
-        pub cheese: String,
-        pub topping: String,
-    }
-    impl Pizza {
-        pub fn lunch(tooping: &str) -> Pizza {
-            Pizza {
-                dough: String::from(tooping),
-                cheese: String::from(tooping),
-                topping: String::from(tooping),
-            }
-        }
-    }
-    pub mod help_customer {
-        pub fn seat_at_table() {
-            println!("seat at table");
-        }
-        #[allow(dead_code)]
-        pub fn take_order() {
-            seat_at_table();
-            println!("take order");
-        }
-    }
-}
-
-#[allow(unused_variables)]
-#[allow(dead_code)]
-pub fn exec() {
-    let x = crate::modules::test::Pizza::lunch("test");
-    let y = crate::modules::pizza_order::Pizza::lunch("test");
+pub fn run() {
+    // use your modules here
+    use pizza_inline::Pizza as pizza_inline;
+    use pizza_order::Pizza;
+    use pizza_tester::Pizza as pizza_tester;
+    let x = pizza_tester::lunch("pizza tester");
+    let y = Pizza::lunch("test");
+    let z = pizza_inline::lunch("inline");
     println!("hello from modules");
     println!("{:?}", x);
+    println!("{:?}", y);
+    println!("{:?}", z);
 }
 
-// cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_modules() {
+        run()
     }
 }

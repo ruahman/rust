@@ -1,4 +1,4 @@
-// it's a pointer that provides functionality beyond just access to a referenct
+// it's a pointer that provides functionality beyond just access to a reference
 // example a String can be consider a smart pointer
 
 #[derive(Debug)]
@@ -26,7 +26,7 @@ impl<T> TreeNode<T> {
     }
 }
 
-pub fn demo() {
+pub fn run() {
     let b_int = Box::new(10);
     println!("{}", b_int);
 
@@ -39,4 +39,13 @@ pub fn demo() {
 
     // node1.left(node2);
     // node1.right(node3);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_smart_pointers() {
+        run()
+    }
 }
