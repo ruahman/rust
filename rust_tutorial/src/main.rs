@@ -2,6 +2,7 @@ mod arrays;
 mod closures;
 mod conditions;
 mod enumerations;
+mod formatting;
 mod functions;
 mod generics;
 mod hashmaps;
@@ -13,6 +14,7 @@ mod options;
 mod pattern_matching;
 mod strings;
 mod structs;
+mod traits;
 mod tuples;
 mod unions;
 mod variables;
@@ -37,4 +39,6 @@ fn main() {
     functions::run();
     methods::run();
     closures::run();
+    traits::run();
+    formatting::run();
 }
