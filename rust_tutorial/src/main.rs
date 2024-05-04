@@ -31,32 +31,4 @@ mod vectors;
 
 fn main() {
     hello_world::run();
-    variables::run();
-    conditions::run();
-    variables::run();
-    enumerations::run();
-    unions::run();
-    options::run();
-    arrays::run();
-    tuples::run();
-    pattern_matching::run();
-    generics::run();
-    strings::run();
-    hashmaps::run();
-    hashsets::run();
-    iterators::run();
-    functions::run();
-    methods::run();
-    closures::run();
-    traits::run();
-    formatting::run();
-    ownership::run();
-    lifetime::run();
-    reference_counter::run();
-    atomic_reference_counter::run();
-    threads::run();
-    modules::run();
-    error_handling::run();
-    smart_pointers::run();
-    bank::run();
 }
