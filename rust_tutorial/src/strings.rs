@@ -17,6 +17,7 @@ pub fn run() {
     // string literals, this is a refrence to a string slice
     // this is alocated at compile time
     let str1 = "Hello there!";
+    assert!(str1 == "Hello there!");
 
     // &str is a string slice, this is a slice out of a string
     // string slices can not be modified
@@ -24,6 +25,7 @@ pub fn run() {
     // 'static means that the string is stored in the static memory
     // this is just a string slice from the static memory, it comes with the program
     let str2: &'static str = "Hello there!";
+    assert!(str2 == "Hello there!");
 
     // cant do this with string slices
     // println!("{}", str2[0]);
@@ -35,10 +37,8 @@ pub fn run() {
 
     // and this
     if let Some(first_char) = str2.chars().nth(0) {
-        println!("First char: {}", first_char);
+        assert!(first_char == 'H');
     }
-
-    println!("{},{}", str1, str2);
 
     // string objects
     // string objects are mutable
@@ -48,16 +48,17 @@ pub fn run() {
     str1.push('A');
     str1.push_str(" hello");
     str1.push_str(" world");
+    assert!(str1 == "A hello world");
 
     let str_slice: &str = &str1;
-    println!("{}", str_slice);
+    assert!(str_slice == "A hello world");
 
     for word in str1.split_whitespace() {
         println!("{}", word);
     }
 
     let str2 = str1.replace("A", "the");
-    println!("{}", str2);
+    assert!(str2 == "the hello world");
 
     // create string from string literal???
     let str3 = String::from("x r t b h k k a m c");
@@ -72,16 +73,16 @@ pub fn run() {
     let str4: &str = "Random string";
     // convert string literal to string object
     let mut str5: String = str4.to_string();
-    println!("{}:{}", str4, str5);
+    assert!(str4 == str5);
 
     // create string slice from string
     let str6 = &str5[0..6];
-    println!("{}", str6);
+    assert!(str6 == "Random");
 
     let mut hello = String::from("Hello form strings");
-    println!("{}", hello);
+    assert!(hello == "Hello form strings");
     hello.push_str(" push me");
-    println!("{}", hello);
+    assert!(hello == "Hello form strings push me");
 
     for word in hello.split_whitespace() {
         println!("{}", word);
@@ -90,16 +91,16 @@ pub fn run() {
     // string literals
     // are just string slices
     let greeting: &str = "Nice to meet you";
-    println!("{}", greeting);
+    assert!(greeting == "Nice to meet you");
 
     // this string slice in alocated in the static memory
     let s: &'static str = "hello there!";
-    println!("{}", s);
+    assert!(s == "hello there!");
 
     // format
     let name = "Diego";
     let greeting = format!("Hi, I'm {}", name);
-    println!("{}", greeting);
+    assert!(greeting == "Hi, I'm Diego");
 }
 
 // cargo test strings::tests -- --nocapture
