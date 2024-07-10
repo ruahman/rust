@@ -1,5 +1,4 @@
 use std::mem;
-
 static X: [i32; 5] = [1, 2, 3, 4, 5];
 
 // This function borrows a slice.
@@ -11,6 +10,7 @@ fn analyze_slice(slice: &[i32]) {
 #[allow(dead_code)]
 #[allow(unused_variables)]
 pub fn run() {
+    // arrays are fixed size
     let mut a: [i32; 5] = [1, 2, 3, 4, 5];
     println!("a len: {}", a.len());
     a[0] = 123;

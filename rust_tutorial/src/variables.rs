@@ -13,27 +13,26 @@ static Z: i32 = 123; // this has an address
 #[allow(dead_code)]
 pub fn run() {
     let a: u8 = 123; // unsigned 8 bits
-    println!("a: {}", a); // immutable
+    println!("a: {a}"); // immutable
 
     // can't do this
     // a = 456;
 
+    // mutable
     let mut b: i8 = 0; // signed 8 bits mutable
-    println!("b: {}", b);
+    println!("b: {b}");
     b = 42;
     println!("b: {}", b);
 
     // type inference
     let c = 123456789; // 32-bit signed i32
-    println!("c: {}, size: {} bytes", c, mem::size_of_val(&c));
+    println!("c: {c}, size: {} bytes", mem::size_of_val(&c));
 
     // usize isize default size of your system
     let z: isize = 123;
     let size_of_z = mem::size_of_val(&z);
     println!(
-        "z: {}, takes up {} bytes, {}-bit OS",
-        z,
-        size_of_z,
+        "z: {z}, takes up {size_of_z} bytes, {}-bit OS",
         size_of_z * 8
     );
 

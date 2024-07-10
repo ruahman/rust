@@ -1,4 +1,4 @@
-pub fn demo() {
+pub fn run() {
     println!("--- slices ---");
 
     let s = String::from("hello world");
@@ -13,6 +13,10 @@ pub fn demo() {
     let a = [1, 2, 3, 4, 5];
     let slice = &a[1..4];
     println!("{:?}", slice);
+
+    let animals = ["dog", "cat", "mouse"];
+    let anim = &animals[1..3];
+    println!("anim: {anim:?}");
 }
 
 #[cfg(test)]
@@ -20,6 +24,6 @@ mod slices_tests {
     use super::*;
     #[test]
     fn test_slice() {
-        demo();
+        run();
     }
 }

@@ -25,7 +25,7 @@ fn move_test(m: Movement) {
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
-pub fn exec() {
+pub fn run() {
     //// enums
 
     enum Days {
@@ -88,10 +88,10 @@ pub fn exec() {
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
-    fn test_exec() {
-        exec()
+    fn test_enums() {
+        run()
     }
 }

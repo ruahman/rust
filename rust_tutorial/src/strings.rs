@@ -14,7 +14,8 @@ pub fn run() {
     // string literals are not mutable
     // string objects are mutable
 
-    // string literals
+    // string literals, this is a refrence to a string slice
+    // this is alocated at compile time
     let str1 = "Hello there!";
 
     // &str is a string slice, this is a slice out of a string
@@ -42,6 +43,7 @@ pub fn run() {
     // string objects
     // string objects are mutable
     // string objects are stored in the heap memory
+    // can be created at run time.
     let mut str1 = String::new();
     str1.push('A');
     str1.push_str(" hello");
@@ -68,6 +70,7 @@ pub fn run() {
 
     // string literal
     let str4: &str = "Random string";
+    // convert string literal to string object
     let mut str5: String = str4.to_string();
     println!("{}:{}", str4, str5);
 

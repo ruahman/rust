@@ -20,10 +20,11 @@ clean:
 
 .PHONY: test
 test: 
+# t is the test name, try to make it unique
 ifdef t 
 	@echo "Running test $(t)"
 	cargo test $(t) -- --nocapture
 else
-	@echo "Running tests..."
+	@echo "Running all tests..."
 	cargo test
 endif

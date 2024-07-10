@@ -5,6 +5,7 @@ pub fn run() {
 
     // a vector is something that grows dynamically
     // vector must be mutable to push
+    // basically a dynamic array
     let mut vec2 = vec![1, 2, 3];
     vec2.push(4);
     println!("fst: {}", vec2[0]);
@@ -26,7 +27,8 @@ pub fn run() {
     numbers.push(5);
     numbers.push(5);
 
-    println!("{:?}", numbers);
+    // show debug
+    println!("debug: {numbers:?}");
 
     let pop = numbers.pop();
     if let Some(x) = pop {

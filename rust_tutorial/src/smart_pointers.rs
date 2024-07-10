@@ -1,6 +1,11 @@
 // it's a pointer that provides functionality beyond just access to a reference
 // example a String can be consider a smart pointer
 
+// Box<T> is a smart pointer because it implements the Deref trait, which allows Box<T> to be
+// treated like a reference
+// Box<T> also implements the Drop trait, which allows Box<T> to clean up the heap memory when it
+// goes out of scope
+
 #[derive(Debug)]
 struct TreeNode<T> {
     pub left: Option<Box<TreeNode<T>>>,

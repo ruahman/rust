@@ -1,3 +1,12 @@
+// each value has an owner
+// there is only one owner at a time
+// when the owner goes out of scope the value disapears too
+// only one can point to a reference
+
+// mutable refrences
+// there can be only one mutable reference to a resource
+// they must have the same lifescycle
+
 #[allow(dead_code)]
 #[derive(Debug)]
 pub struct Ownership {
