@@ -21,6 +21,17 @@ pub struct Ownership {
 #[allow(dead_code)]
 #[allow(unused_variables)]
 pub fn run() -> Ownership {
+    // the value can move to another owner or barrow
+    // the owner is associated  function scope
+
+    // you can move a value to another owner
+    // or you can borrow a value
+
+    // to borrow a mutable value the owner must be mutable
+
+    // the owener is in charge to freeing the memory and
+    // this happend when the owner goes out of scope from the funtion that created it.
+
     let v1 = vec![1, 2, 3];
     // there is only one owner at a time, v2 is now the owner
     let v2 = v1;

@@ -3,6 +3,11 @@
 pub fn run() {
     //// strings
 
+    // String - owned
+    // * used to store string in a struct
+    // &str - borrowed string slice
+    // * used to pass string slices to functions
+
     // strings come in two forms
     // 1. string literals
     // 2. string objects

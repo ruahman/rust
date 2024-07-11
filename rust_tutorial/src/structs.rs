@@ -36,8 +36,8 @@ struct Person {
 }
 
 impl Person {
-    fn new(first: &str, last: &str) -> Person {
-        Person {
+    fn new(first: &str, last: &str) -> Self {
+        Self {
             first_name: first.to_string(),
             last_name: last.to_string(),
         }

@@ -16,6 +16,7 @@ pub fn run() {
         None => println!("none"),
     }
 
+    // if you don't borrow then the values are moved and you cant use them anymore
     for x in &vec2 {
         println!("{}", x);
     }

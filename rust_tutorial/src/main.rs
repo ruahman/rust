@@ -21,6 +21,7 @@ mod options;
 mod ownership;
 mod pattern_matching;
 mod reference_counter;
+mod results;
 mod slices;
 mod smart_pointers;
 mod strings;
@@ -65,4 +66,5 @@ fn main() {
     io::run();
     enums::run();
     slices::run();
+    results::run();
 }
