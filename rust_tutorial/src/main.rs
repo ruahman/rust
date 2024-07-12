@@ -2,7 +2,9 @@ mod arrays;
 mod atomic_reference_counter;
 mod bank;
 mod closures;
+mod collections;
 mod conditions;
+mod data_types;
 mod enumerations;
 mod enums;
 mod error_handling;
@@ -67,4 +69,6 @@ fn main() {
     enums::run();
     slices::run();
     results::run();
+    collections::run();
+    data_types::run();
 }

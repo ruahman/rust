@@ -84,6 +84,7 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
 
 // The following struct is for the activity.
 #[derive(Debug)]
+#[allow(dead_code)]
 struct Matrix(f32, f32, f32, f32);
 
 #[cfg(test)]
