@@ -1,4 +1,4 @@
-pub fn demo() {
+pub fn run() {
     println!("hello print");
 
     println!("num: {}", 1);
@@ -66,4 +66,13 @@ pub fn demo() {
     let number: f64 = 1.0;
     let width: usize = 5;
     println!("{number:>width$}");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_print() {
+        run();
+    }
 }

@@ -22,6 +22,7 @@ mod modules;
 mod options;
 mod ownership;
 mod pattern_matching;
+mod print;
 mod reference_counter;
 mod results;
 mod slices;
@@ -31,6 +32,7 @@ mod structs;
 mod threads;
 mod traits;
 mod tuples;
+mod types;
 mod unions;
 mod variables;
 mod vectors;
@@ -71,4 +73,6 @@ fn main() {
     results::run();
     collections::run();
     data_types::run();
+    types::run();
+    print::run();
 }

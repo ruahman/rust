@@ -4,7 +4,7 @@ const PI: f64 = 3.14;
 // constant memory address then anyone can get
 static mut Z: i32 = 333;
 
-pub fn demo() {
+pub fn run() {
     // variable are unmutable by default
     let x = 1;
     let y = 3.12;
@@ -26,5 +26,14 @@ pub fn demo() {
     unsafe {
         Z = 555;
         println!("{}", Z);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_types() {
+        run();
     }
 }
