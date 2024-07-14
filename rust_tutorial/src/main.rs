@@ -11,17 +11,20 @@ mod error_handling;
 mod formatting;
 mod functions;
 mod generics;
+mod guess_random_number;
 mod hashmaps;
 mod hashsets;
 mod hello_world;
 mod io;
 mod iterators;
 mod lifetime;
+mod loops;
 mod methods;
 mod modules;
 mod options;
 mod ownership;
 mod pattern_matching;
+mod pointers_ref;
 mod print;
 mod reference_counter;
 mod results;
@@ -75,4 +78,7 @@ fn main() {
     data_types::run();
     types::run();
     print::run();
+    loops::run();
+    pointers_ref::run();
+    guess_random_number::run();
 }

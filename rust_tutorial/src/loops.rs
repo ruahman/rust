@@ -1,4 +1,4 @@
-pub fn exec() {
+pub fn run() {
     //// loops
 
     let arr = [1, 2, 3, 4, 5];
@@ -54,10 +54,10 @@ pub fn exec() {
 // cargo test loops::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::exec;
+    use super::run;
 
     #[test]
     fn test_exec() {
-        exec()
+        run()
     }
 }

@@ -34,3 +34,12 @@ pub fn run() {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_guess_random_number() {
+        run();
+    }
+}
