@@ -19,6 +19,17 @@ fn sum_list(list: &[i32]) -> i32 {
     sum
 }
 
+// divergent function:
+// a function that never returns.
+// This is indicated using the special return type !,
+// which is an empty type that has no values.
+#[allow(dead_code)]
+fn never_returns() -> ! {
+    // use this macro or todo!() to indicate that the function is not implemented
+    // yet to the compiler.
+    unimplemented!();
+}
+
 #[allow(dead_code)]
 pub fn run() {
     //// functions

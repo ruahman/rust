@@ -38,6 +38,14 @@ pub fn run() {
     let a: char = 'a';
     println!("a: {}", a);
 
+    // unit type:
+    // The unit type is written as (), and is a special type which has only one value: an empty
+    // tuple. The empty tuple does not have any elements, and is used in places where no other
+    // value is suitable. For example, the unit type is the return type of functions that do not
+    // return a meaningful value.
+    let u = ();
+    println!("u: {:?}", u);
+
     //// cast
 
     let int_u8 = 5;

@@ -46,7 +46,13 @@ pub fn run() {
         count += 1;
     }
 
+    // loop till 100
     for x in 0..100 {
+        println!("for: {}", x);
+    }
+
+    // include 100
+    for x in 0..=100 {
         println!("for: {}", x);
     }
 }

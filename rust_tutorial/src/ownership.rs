@@ -1,3 +1,19 @@
+// this is a set of rules that manage memory management,
+// if any of these rules are broken the compiler will complain.
+
+// ownership macro_rules
+// 1. each value has an owner
+// 2. there can be only one owner at a time
+// 3. when the owner goes out of scope the value disapears too
+
+// values on stack are copied
+// values on heap are moved
+
+// ownership solves
+// 1. memory leaks (memory that is not freed after out of scope)
+// 2. double free (free memory that is already freed)
+// 3. dangling pointers (pointers that point to nothing)
+
 // each value has an owner
 // there is only one owner at a time
 // when the owner goes out of scope the value disapears too
@@ -26,6 +42,15 @@ pub fn run() -> Ownership {
 
     // you can move a value to another owner
     // or you can borrow a value
+
+    // borrowing is a way to get access to the data without taking ownership
+
+    // you can only have one mutable reference to a resource
+    // or you can have multiple immutable references to a resource
+    // but you can not have both a mutable refrence and multiple immutable
+    // references at the same time
+
+    // you have to explicitly state you want a mutable reference
 
     // to borrow a mutable value the owner must be mutable
 
@@ -116,6 +141,7 @@ pub fn run() -> Ownership {
     // cant do this because ownership was moved to b
     // println!("{}", a);
 
+    // box allows you to store data on the heap
     let x = Box::new(45);
     {
         let y = x;

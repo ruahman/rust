@@ -3,6 +3,12 @@
 pub fn run() {
     //// strings
 
+    // String is heep allocated, owns the data
+    // &str is a string slice, it is a refrence to a string, it does not own the data
+
+    // string literals are (&'static str), meaning that they are stored in the static memory
+    // and are available for the entire duration of the program
+
     // String - owned
     // * used to store string in a struct
     // &str - borrowed string slice

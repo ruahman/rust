@@ -1,13 +1,36 @@
 use std::fmt::Debug;
 use std::ops::Add;
+use std::ops::Mul;
 
 // think of a trait as an interface in other languages
+// traits only consists of method signatures
+// in order to implement a trait you have to implement all the methods
 trait Animal {
     fn create(name: &'static str) -> Self;
     fn name(&self) -> &'static str;
     fn talk(&self) {
         println!("{} cannot talk", self.name());
     }
+}
+
+// a derivable trait is a trait that is automatically implemented by the compiler
+// for a struct or enum
+// #[derive(Debug)] allows you to print the struct or enum
+// #[derive(clone)] allows you to clone the struct or enum
+// #[derive(copy)] allows you to copy the struct or enum
+
+#[allow(dead_code)]
+#[derive(Clone, Debug)]
+struct Dog {
+    name: &'static str,
+}
+
+// you can also specify the trait of your generic type.
+// make sure that the generic type implements the traits you specify
+// Output is an associated type an specifies the return type of the function
+#[allow(dead_code)]
+fn multiply<T: Mul<Output = T>>(a: T, b: T) -> T {
+    a * b
 }
 
 struct Human {
