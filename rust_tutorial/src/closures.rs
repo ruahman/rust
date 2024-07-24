@@ -3,6 +3,7 @@
 
 // they can take ownership of values by using the move keyword
 
+// you can specify a clousre with Generic parameters
 fn use_func<T>(a: i32, b: i32, func: T) -> i32
 where
     T: Fn(i32, i32) -> i32,
@@ -13,6 +14,7 @@ where
 pub fn run() {
     let can_vote = |age: i32| age >= 18;
     println!("{}", can_vote(42));
+
     let sum = |a, b| a + b;
     println!("{}", use_func(5, 4, sum));
 

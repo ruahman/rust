@@ -1,4 +1,5 @@
 use std::mem;
+
 static X: [i32; 5] = [1, 2, 3, 4, 5];
 
 // This function borrows a slice.
@@ -7,8 +8,6 @@ fn analyze_slice(slice: &[i32]) {
     println!("The slice has {} elements", slice.len());
 }
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 pub fn run() {
     // arrays are fixed size
     let mut a: [i32; 5] = [1, 2, 3, 4, 5];
@@ -38,9 +37,11 @@ pub fn run() {
 
     // arrays have a fixed lenght
     let numbers: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("numbers: {:?}", numbers);
 
     // slices point to a slice of memory of a array
     let slice: &[i32] = &X[1..3];
+    println!("slice: {:?}", slice);
 
     // this doesn't work
     // let slice: &[i32] = X[1..3]

@@ -12,6 +12,10 @@ pub fn run() {
     if let Some(z) = r2 {
         println!("{:?}", z);
     }
+
+    let r3 = Some(99);
+    let x = r3.unwrap();
+    println!("{:?}", x);
 }
 
 #[cfg(test)]
