@@ -179,6 +179,15 @@ impl Add for Person {
     }
 }
 
+fn notify(p: &impl Shape) {
+    println!("{}", p.area());
+}
+
+// this also works
+fn notify2<T: Shape>(p: &T) {
+    println!("{}", p.area());
+}
+
 #[derive(Debug)]
 struct Complex<T> {
     re: T,
@@ -230,14 +239,29 @@ where
     z.p();
 }
 
+// however, if you make a function that uses a trait as a parameter,
+// you need to specify that the trait is dynamic.
 // opbject is dynamical called meaning which method it uses is determined at
 // runtime, you would use dynamic messaageing is you had to go through an array
 // of object and dynamicaly call there methonds.
 // there is no why you could know at static time which method you would call.
+// at run time it needs to consult a table to list what functions are available
+// for the referenced object,
+
 fn print_it_dynamic(z: &dyn Printable) {
+    // &dyn specifies that this is a dynamic refrence
     // which implementation of p to use is determined at runtime
     z.p();
 }
+
+// trait objects:
+// if a function returns a trait it needs to know the exact size of the return type
+// at compile time. This is not possible with traits because they are dynamic.
+
+// you can't return a trait object from a function
+// you can only return a reference to a trait
+// but you have to specify it as a Box<dyn Trait>
+// so that the compiler knows that the method calls will be resolved at runtime
 
 pub fn run() {
     // let h = Human { name: "John" };
@@ -273,6 +297,8 @@ pub fn run() {
     println!("{}{}", circle.length, circle.width);
     println!("{}", rec.area());
     println!("{}", circle.area());
+    println!("notify: {:?}", { notify(&rec) });
+    println!("notify2: {:?}", { notify2(&rec) });
     // this function takes in a parameter that implements the shape trait and the debug trait
     print_info(circle);
     print_info(rec);

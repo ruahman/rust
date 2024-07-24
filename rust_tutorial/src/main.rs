@@ -70,7 +70,6 @@ fn main() {
     error_handling::run();
     smart_pointers::run();
     bank::run();
-    io::run();
     enums::run();
     slices::run();
     results::run();
@@ -80,5 +79,6 @@ fn main() {
     print::run();
     loops::run();
     pointers_ref::run();
+    io::run();
     guess_random_number::run();
 }

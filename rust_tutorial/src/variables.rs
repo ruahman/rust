@@ -4,7 +4,9 @@
 #[allow(unused_mut)]
 use std::mem;
 
-// this is computed at compile time
+// this is computed at compile time,
+// and replased where ever it is called with it's value
+// so it's really not a variable
 const MEANING_OF_LIFE: u8 = 42; // no fixed address
 
 // static variables have fixed address

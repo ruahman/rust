@@ -36,6 +36,8 @@ struct Person {
 }
 
 impl Person {
+    // this is called an associated function,
+    // since it doesn't have a reference to an instance of the struct
     fn new(first: &str, last: &str) -> Self {
         Self {
             first_name: first.to_string(),

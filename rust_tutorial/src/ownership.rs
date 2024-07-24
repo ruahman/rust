@@ -23,6 +23,10 @@
 // there can be only one mutable reference to a resource
 // they must have the same lifescycle
 
+// the stack is fixed size and the heap is dynamic size
+// the size of the stack is calculated at compile time
+// the size of the heep can change at runtime
+
 #[allow(dead_code)]
 #[derive(Debug)]
 pub struct Ownership {

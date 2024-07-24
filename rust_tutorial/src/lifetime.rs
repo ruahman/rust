@@ -1,3 +1,23 @@
+// a type of generic insuring that a reference is valid for as long as needed
+
+// every refrerence has a lifetime, which is the scope for which that reference is valid
+
+// most of the the time this is implicit and inferred by the compiler
+
+// sometimes though, lifetime anoations are needed to help the compiler
+
+// the point of lifetimes is to prevent dangling references,
+// which cause a program to reference data that has been deallocated
+
+// the borow checker that copares the scopes/lifetime of refrereces to the data
+// they refer to, to ensure that all borrows are valid
+
+// a reference to a value must never outlive the value it references
+
+// a short lifetime can not be coerced into a longer lifetime
+
+// lifetimes of references must outlive the functions that use them
+
 struct Person {
     name: String,
 }
@@ -28,6 +48,14 @@ impl<'a> Person2<'a> {
 }
 
 pub fn run() {
+    // this will cause a problem
+    // let r;
+    // {
+    //     let x = 5;
+    //     r = &x;
+    // }
+    // println!("r: {}", r);
+
     // lifetime is how long a variable will live
     // a static lifetime is the entire duration of the program
     let s: &'static str = "I have a static lifetime.";
@@ -56,6 +84,27 @@ pub fn run() {
     println!("{}", person2.name);
     println!("{}", persoin3.name);
     persoin3.talk();
+
+    // most of the time the compiler can infer the lifetimes
+    // but sometimes  we have to specify lifetimes to help the borrow checker detrmine
+    // if refrences are valid
+    fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+        if x.len() > y.len() {
+            x
+        } else {
+            y
+        }
+    }
+
+    let string1 = String::from("long string is long");
+    let result: &str;
+    {
+        let string2 = String::from("xyz");
+        result = longest(string1.as_str(), string2.as_str());
+        println!("The longest string is {}", result);
+    }
+    // this can cause a problem because wath if string2 was returned
+    // println!("{}", result);
 }
 
 #[cfg(test)]

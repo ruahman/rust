@@ -1,3 +1,8 @@
+// a closure is an anonymous function that can capture values from the scope
+// in which it is defined
+
+// they can take ownership of values by using the move keyword
+
 fn use_func<T>(a: i32, b: i32, func: T) -> i32
 where
     T: Fn(i32, i32) -> i32,
@@ -33,6 +38,11 @@ pub fn run() {
 
     let borrow_two = &mut two;
     println!("borrow_two {}", borrow_two);
+
+    let color = String::from("green");
+    // color is moved here, so closue takes ownership of color now
+    let print = move || println!("{}", color);
+    print();
 }
 
 fn greater_than(limit: u32) -> impl Fn(u32) -> bool {
