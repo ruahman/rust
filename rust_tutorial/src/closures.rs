@@ -3,13 +3,21 @@
 
 // they can take ownership of values by using the move keyword
 
-// you can specify a clousre with Generic parameters
+// you can specify a clousre with Fn traits and generics
 fn use_func<T>(a: i32, b: i32, func: T) -> i32
 where
     T: Fn(i32, i32) -> i32,
 {
     func(a, b)
 }
+
+// FnOnce: takes ownership of variables from the environment that the closure is defined in,
+// sort of like a move, you can only call the closure once since the environment is dropped
+// as soon as the closure is called
+
+// Fn: borrows values from the environment
+
+// FnMut: can change the environment because it mutably borrows values
 
 pub fn run() {
     let can_vote = |age: i32| age >= 18;
