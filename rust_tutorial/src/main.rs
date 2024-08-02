@@ -26,6 +26,7 @@ mod ownership;
 mod pattern_matching;
 mod pointers_ref;
 mod print;
+mod refcell;
 mod reference_counter;
 mod results;
 mod slices;
@@ -81,4 +82,5 @@ fn main() {
     pointers_ref::run();
     io::run();
     guess_random_number::run();
+    refcell::run();
 }

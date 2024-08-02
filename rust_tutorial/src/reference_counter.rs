@@ -1,5 +1,8 @@
 use std::rc::Rc;
 
+// sometimes you want to have multiple ownership of a value
+// Rc is a reference counter that allows you to have multiple ownership of a value
+
 struct Person {
     name: Rc<String>,
 }
