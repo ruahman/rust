@@ -1,6 +1,7 @@
 mod arrays;
 mod atomic_reference_counter;
 mod bank;
+mod channels;
 mod closures;
 mod collections;
 mod conditions;
@@ -21,6 +22,7 @@ mod lifetime;
 mod loops;
 mod methods;
 mod modules;
+mod mutex;
 mod options;
 mod ownership;
 mod pattern_matching;
@@ -34,6 +36,7 @@ mod smart_pointers;
 mod strings;
 mod structs;
 mod threads;
+mod trait_objects;
 mod traits;
 mod tuples;
 mod types;
@@ -80,7 +83,10 @@ fn main() {
     print::run();
     loops::run();
     pointers_ref::run();
+    refcell::run();
+    channels::run();
+    mutex::run();
+    trait_objects::run();
     io::run();
     guess_random_number::run();
-    refcell::run();
 }

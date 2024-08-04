@@ -1,6 +1,9 @@
 use std::thread;
 use std::time::Duration;
 
+// rust only used one to one operating system threads.
+// if you want green threads, you need to use a library like `green-threads`
+
 pub fn run() {
     let thread1 = thread::spawn(|| {
         for i in 1..25 {
