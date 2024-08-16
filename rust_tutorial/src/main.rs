@@ -6,6 +6,7 @@ mod closures;
 mod collections;
 mod conditions;
 mod data_types;
+mod debug;
 mod enumerations;
 mod enums;
 mod error_handling;
@@ -89,4 +90,5 @@ fn main() {
     trait_objects::run();
     io::run();
     guess_random_number::run();
+    debug::run();
 }

@@ -16,6 +16,11 @@ pub fn run() {
     println!("Base 2 (binary):       {:b}", 69420);
     println!("Base 8 (octal):        {:o}", 69420);
     println!("Base 16 (hexadecimal): {:x}", 69420);
+
+    let x = "Hello World!";
+    let y = "Hello Rust!";
+    let z = "Hello Cargo!";
+    println!("{x}, {y}, {z}");
 }
 
 #[cfg(test)]
