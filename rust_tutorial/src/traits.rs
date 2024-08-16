@@ -2,6 +2,9 @@ use std::fmt::Debug;
 use std::ops::Add;
 use std::ops::Mul;
 
+// a trait is a collection of methods that an object must implement
+// in order to be classified as implementing that trait
+
 // think of a trait as an interface in other languages
 // traits only consists of method signatures
 // in order to implement a trait you have to implement all the methods
@@ -325,6 +328,51 @@ pub fn run() {
 
     // static dispatch: the decision of which method to call is determined
     // staticaly
+
+    struct Sedan {}
+
+    impl LandCapable for Sedan {
+        fn drive(&self) {
+            println!("sedan driving");
+        }
+    }
+
+    struct SUV {}
+    impl LandCapable for SUV {
+        fn drive(&self) {
+            println!("SUV driving");
+        }
+    }
+
+    trait LandCapable {
+        fn drive(&self);
+    }
+
+    // this is dynamic dispatch because the method to call is determined at runtime
+    // which make the program size smaller
+    // but there is a runtime cost
+    fn road_trip_dyn(car: &dyn LandCapable) {
+        car.drive();
+    }
+
+    // this is static dispatch because the method to call is determined at compile time
+    // an implementation for each posible type is created for the function at compile time,
+    // which makes the program size bigger
+    fn road_trip_static<T: LandCapable>(car: &T) {
+        car.drive();
+    }
+
+    // impl is another way to specify static dispatch
+    fn road_trip_static2(car: &impl LandCapable) {
+        car.drive();
+    }
+
+    let car = Sedan {};
+    road_trip_dyn(&car);
+    road_trip_static(&car);
+    road_trip_static2(&car);
+
+    // generics and structs usually work hand in hand
 }
 
 // cargo test variables::tests -- --nocapture
