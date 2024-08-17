@@ -1,7 +1,7 @@
-#[allow(unused_assignments)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_mut)]
+// #[allow(unused_assignments)]
+// #[allow(dead_code)]
+// #[allow(unused_variables)]
+// #[allow(unused_mut)]
 use std::mem;
 
 // this is computed at compile time,
@@ -67,6 +67,7 @@ pub fn run() {
     println!("Z: {}", Z);
 
     // stack and heap
+
     // stack is allocated when calling the function, it's freed when the function returns
     // when you declare a variable, it's stored on the stack, it's calulated ahead of time.
     // it checks the function to find out how much space it needs and then it allocates that space
@@ -89,17 +90,17 @@ pub fn run() {
 
     // heap allocated
     let p2 = Box::new(origin());
+
     // p2 is just a pointer so it's smaller
     println!("p2 takes up {} bytes", mem::size_of_val(&p2));
 
-    // // deconstruct
-    // let (name, age) = ("Brad", 37);
-    // println!("name: {}", name);
-    //
-    // println!("age: {}", age);
+    // deconstruct
+    let (name, age) = ("Brad", 37);
+    println!("name: {}", name);
+
+    println!("age: {}", age);
 }
 
-// cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
     use super::run;

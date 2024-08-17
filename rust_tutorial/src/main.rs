@@ -7,6 +7,7 @@ mod collections;
 mod conditions;
 mod data_types;
 mod debug;
+mod display;
 mod enumerations;
 mod enums;
 mod error_handling;
@@ -91,4 +92,5 @@ fn main() {
     io::run();
     guess_random_number::run();
     debug::run();
+    display::run();
 }
