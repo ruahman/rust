@@ -10,13 +10,19 @@ run:
 
 .PHONY: check 
 check:
-	@echo "Linting..."
+	@echo "check..."
 	cargo check
+
+.PHONY: clippy
+clippy:
+	@echo "Linting..."
+	cargo clippy
 
 .PHONY: clean
 clean:
 	@echo "Cleaning..."
 	cargo clean
+
 
 .PHONY: test
 test: 
