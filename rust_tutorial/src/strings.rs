@@ -47,7 +47,7 @@ pub fn run() {
     }
 
     // and this
-    if let Some(first_char) = str2.chars().nth(0) {
+    if let Some(first_char) = str2.chars().next() {
         assert!(first_char == 'H');
     }
 

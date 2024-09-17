@@ -3,7 +3,7 @@ use std::ops::Add;
 // this function will work with any type that implements the Add trait
 // Output = T means that the function will return the same type as the input
 fn get_sum_gen<T: Add<Output = T>>(x: T, y: T) -> T {
-    return x + y;
+    x + y
 }
 
 #[derive(Debug)]

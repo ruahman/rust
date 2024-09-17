@@ -20,9 +20,11 @@ pub fn run() {
     let (a, b) = sp;
     println!("a: {}, b: {}", a, b);
 
+    #[allow(clippy::disallowed_names)]
     let foo = (true, 42.0, -1i8);
     println!("foo: {:?}", foo);
 
+    #[allow(clippy::approx_constant)]
     let my_tuple: (u8, String, f64) = (42, String::from("diego"), 3.14);
     println!("my_tuple: {:?}", my_tuple);
     println!("my_tuple: {}, {}, {}", my_tuple.0, my_tuple.1, my_tuple.2);

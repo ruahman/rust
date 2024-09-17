@@ -1,5 +1,5 @@
-
 #[derive(Debug)]
+#[allow(dead_code)]
 pub struct Pizza {
     pub dough: String,
     pub cheese: String,

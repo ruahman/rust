@@ -1,3 +1,4 @@
+#[allow(clippy::unnecessary_literal_unwrap)]
 pub fn run() {
     // it's either someting or nothing
     let r = Some(32);

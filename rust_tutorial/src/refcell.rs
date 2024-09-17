@@ -36,12 +36,12 @@ pub fn run() {
         node.value.set(cur_value + 1);
 
         let mut mut_value = node.value2.borrow_mut();
-        mut_value.push_str("x");
+        mut_value.push('x');
 
         // some of the adjacent nodes may have a reference to this node.
         // use iter so that n does not take ownership of the reference.
         for n in node.adjacent.iter() {
-            add_one(&n);
+            add_one(n);
         }
     }
 

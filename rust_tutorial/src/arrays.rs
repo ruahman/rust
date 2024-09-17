@@ -8,6 +8,7 @@ fn analyze_slice(slice: &[i32]) {
     println!("The slice has {} elements", slice.len());
 }
 
+#[allow(clippy::needless_range_loop)]
 pub fn run() {
     // arrays are fixed size
     let mut a: [i32; 5] = [1, 2, 3, 4, 5];

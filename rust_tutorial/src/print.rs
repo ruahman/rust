@@ -1,9 +1,10 @@
+#[allow(clippy::print_literal)]
 pub fn run() {
     println!("hello print");
 
     println!("num: {}", 1);
 
-    println!("named param: {param}", param = "foobar");
+    println!("named param: {param}", param = 123);
 
     // print object that have debug trait implemented
     println!("tuple {:?}", (true, 12, "test"));

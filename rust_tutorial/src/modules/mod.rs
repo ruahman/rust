@@ -2,7 +2,9 @@
 mod pizza_order;
 mod pizza_tester;
 mod pizza_inline {
+
     #[derive(Debug)]
+    #[allow(dead_code)]
     pub struct Pizza {
         pub dough: String,
     }

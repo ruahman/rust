@@ -29,6 +29,7 @@ mod options;
 mod ownership;
 mod pattern_matching;
 mod pointers_ref;
+mod primitives;
 mod print;
 mod refcell;
 mod reference_counter;
@@ -93,4 +94,5 @@ fn main() {
     guess_random_number::run();
     debug::run();
     display::run();
+    primitives::run();
 }

@@ -26,7 +26,7 @@ fn move_test(m: Movement) {
 #[allow(dead_code)]
 #[allow(unused_variables)]
 pub fn run() {
-    //// enums
+    // enums
 
     enum Days {
         Monday,
@@ -40,9 +40,10 @@ pub fn run() {
 
     impl Days {
         fn is_weekend(&self) -> bool {
+            #[allow(clippy::match_like_matches_macro)]
             match self {
-                Days::Saturday | Days::Sunday => return true,
-                _ => return false,
+                Days::Saturday | Days::Sunday => true,
+                _ => false,
             }
         }
     }

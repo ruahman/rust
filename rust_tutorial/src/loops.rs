@@ -10,7 +10,7 @@ pub fn run() {
         if idx >= arr.len() - 1 {
             break;
         }
-        idx = idx + 1;
+        idx += 1;
     }
 
     //// while
@@ -18,7 +18,7 @@ pub fn run() {
     idx = 0;
     while idx < arr.len() {
         println!("arr: {}", arr[idx]);
-        idx = idx + 1;
+        idx += 1;
     }
 
     //// for

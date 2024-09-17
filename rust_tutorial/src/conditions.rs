@@ -1,7 +1,7 @@
 use std::cmp::Ordering;
 
 #[allow(unused_variables)]
-
+#[allow(clippy::manual_range_contains)]
 pub fn run() {
     //// if statements
     let age = 42;
@@ -15,9 +15,11 @@ pub fn run() {
     }
 
     //// ternary operators
+    #[allow(clippy::needless_bool)]
     let can_vote = if age >= 18 { true } else { false };
 
     let x = 3;
+    #[allow(clippy::needless_bool)]
     let inline_bool = if x < 18 { true } else { false };
 
     //// match

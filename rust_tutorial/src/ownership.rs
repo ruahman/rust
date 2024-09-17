@@ -196,14 +196,14 @@ pub fn run() -> Ownership {
 
     change(&mut s);
 
-    return Ownership {
+    Ownership {
         str2,
         str3,
         str6,
         g,
         v2,
         m,
-    };
+    }
 }
 
 fn print_str(x: String) {
@@ -233,7 +233,7 @@ struct Company<'z> {
     ceo: &'z Person,
 }
 
-fn calculate_lenght(s: &String) -> usize {
+fn calculate_lenght(s: &str) -> usize {
     s.len()
 }
 

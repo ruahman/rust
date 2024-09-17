@@ -9,7 +9,7 @@ pub fn run() {
     shapes.insert("pentagon".into(), 5);
 
     // convert "square" to a proper String
-    println!("A square has {} sides", shapes["square".into()]);
+    println!("A square has {} sides", shapes["square"]);
     println!("shapes: {:?}", shapes);
 
     let mut heroes: HashMap<&str, &str> = HashMap::new();

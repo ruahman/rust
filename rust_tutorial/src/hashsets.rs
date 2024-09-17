@@ -1,5 +1,6 @@
 use std::collections::HashSet;
 
+#[allow(clippy::just_underscores_and_digits)]
 pub fn run() {
     let mut greeks = HashSet::new();
     greeks.insert("gamma");

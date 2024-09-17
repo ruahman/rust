@@ -43,10 +43,10 @@ struct Human {
 // once human implements the animal trait, it becomes an animal
 impl Animal for Human {
     fn create(name: &'static str) -> Human {
-        return Human { name };
+        Human { name }
     }
     fn name(&self) -> &'static str {
-        return self.name;
+        self.name
     }
     fn talk(&self) {
         println!("{} says hello", self.name);
@@ -59,10 +59,10 @@ struct Cat {
 
 impl Animal for Cat {
     fn create(name: &'static str) -> Cat {
-        return Cat { name };
+        Cat { name }
     }
     fn name(&self) -> &'static str {
-        return self.name;
+        self.name
     }
 }
 
@@ -82,7 +82,7 @@ impl Summable<i32> for Vec<i32> {
         for x in self {
             result += *x;
         }
-        return result;
+        result
     }
 }
 
@@ -103,25 +103,27 @@ struct Circle {
     length: f32,
     width: f32,
 }
+
+#[allow(clippy::approx_constant)]
 const PI: f32 = 3.14;
 
 // implement the shape trait for the rectangle
 impl Shape for Rectangle {
     fn new(length: f32, width: f32) -> Rectangle {
-        return Rectangle { length, width };
+        Rectangle { length, width }
     }
     fn area(&self) -> f32 {
-        return self.length * self.width;
+        self.length * self.width
     }
 }
 
 // implement the shape trait for the circle
 impl Shape for Circle {
     fn new(length: f32, width: f32) -> Circle {
-        return Circle { length, width };
+        Circle { length, width }
     }
     fn area(&self) -> f32 {
-        return (self.length / 2.0).powf(2.0) * PI;
+        (self.length / 2.0).powf(2.0) * PI
     }
 }
 
@@ -266,6 +268,7 @@ fn print_it_dynamic(z: &dyn Printable) {
 // but you have to specify it as a Box<dyn Trait>
 // so that the compiler knows that the method calls will be resolved at runtime
 
+#[allow(clippy::vec_init_then_push)]
 pub fn run() {
     // let h = Human { name: "John" };
     // let h = Human::create("John");
@@ -337,8 +340,9 @@ pub fn run() {
         }
     }
 
-    struct SUV {}
-    impl LandCapable for SUV {
+    #[allow(dead_code)]
+    struct Suv {}
+    impl LandCapable for Suv {
         fn drive(&self) {
             println!("SUV driving");
         }
