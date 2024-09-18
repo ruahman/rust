@@ -244,15 +244,15 @@ where
     z.p();
 }
 
-// however, if you make a function that uses a trait as a parameter,
-// you need to specify that the trait is dynamic.
-// opbject is dynamical called meaning which method it uses is determined at
-// runtime, you would use dynamic messaageing is you had to go through an array
-// of object and dynamicaly call there methonds.
-// there is no why you could know at static time which method you would call.
-// at run time it needs to consult a table to list what functions are available
-// for the referenced object,
+// works just like above,  during compile time a seperate function
+// for every object that impl the trait is created.
+fn print_it_static2(z: impl Printable) {
+    z.p();
+}
 
+// references to a trait must be dynamic because its imposible to determan
+// which object that implement this trait it is using at compile time.
+// it can only be determaned at runtime
 fn print_it_dynamic(z: &dyn Printable) {
     // &dyn specifies that this is a dynamic refrence
     // which implementation of p to use is determined at runtime
@@ -326,6 +326,8 @@ pub fn run() {
     let p3 = p + p2;
     println!("{}", p3.name);
     print_it_static(p3);
+    let p4 = Person::new("diego");
+    print_it_static2(p4);
     let p5 = Person::new("five");
     print_it_dynamic(&p5);
 
