@@ -3,6 +3,7 @@ use std::thread;
 
 pub fn run() {
     println!("channels.rs");
+    // transmitter and receiver
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
