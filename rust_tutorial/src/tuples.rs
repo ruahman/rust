@@ -5,6 +5,19 @@ fn sum_and_product(x: i32, y: i32) -> (i32, i32) {
     (x + y, x * y)
 }
 
+// Tuples can be used as function arguments and as return values.
+fn reverse(pair: (i32, bool)) -> (bool, i32) {
+    // `let` can be used to bind the members of a tuple to variables.
+    let (int_param, bool_param) = pair;
+
+    (bool_param, int_param)
+}
+
+// The following struct is for the activity.
+#[derive(Debug)]
+#[allow(dead_code)]
+struct Matrix(f32, f32, f32, f32);
+
 #[allow(unused_variables)]
 pub fn run() {
     //// tuple
@@ -75,19 +88,6 @@ pub fn run() {
 
     // return Tuples { person, x, y, z };
 }
-
-// Tuples can be used as function arguments and as return values.
-fn reverse(pair: (i32, bool)) -> (bool, i32) {
-    // `let` can be used to bind the members of a tuple to variables.
-    let (int_param, bool_param) = pair;
-
-    (bool_param, int_param)
-}
-
-// The following struct is for the activity.
-#[derive(Debug)]
-#[allow(dead_code)]
-struct Matrix(f32, f32, f32, f32);
 
 #[cfg(test)]
 mod tests {
