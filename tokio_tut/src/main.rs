@@ -106,9 +106,9 @@ async fn sync_func() {
 
 // tokio uses futures
 // which are like promises
-// but dont execute when you create them
-// but when the tokio runtime runs them.
-// only until we call the await function of the future
+// but the are lazy
+// they dont execute when you create them
+// but when the await funtion of the future is called.
 
 // futures are returned implicityly when ever
 // we use the async keyword
