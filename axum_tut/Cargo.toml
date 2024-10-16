@@ -8,9 +8,11 @@ itest = "test"
 
 [dependencies]
 anyhow = "1"
-# axum = "0.7.7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 axum = "0.6"
 tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.4", features = ["fs"] }
 
 
 [dev-dependencies]
