@@ -1,17 +1,23 @@
 #![allow(unused)]
 
-use std::net::SocketAddr;
+mod error;
+mod web;
 
 use axum::extract::{Path, Query};
 use axum::response::{Html, IntoResponse};
 use axum::routing::{get, get_service};
 use axum::Router;
+pub use error::{Error, Result};
 use serde::Deserialize;
+use std::net::SocketAddr;
 use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() {
-    let routes = Router::new().merge(routes_hello());
+    let routes = Router::new()
+        .merge(routes_hello())
+        .merge(web::routes_login::routes())
+        .fallback_service(routes_static());
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
     println!("listing on {addr}\n");
@@ -29,7 +35,6 @@ fn routes_hello() -> Router {
     Router::new()
         .route("/hello", get(handler_hello))
         .route("/hello/:name", get(handler_hello2))
-        .fallback_service(routes_static())
 }
 
 fn routes_static() -> Router {
