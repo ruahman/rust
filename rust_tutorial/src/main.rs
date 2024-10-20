@@ -12,6 +12,7 @@ mod enumerations;
 mod enums;
 mod error_handling;
 mod formatting;
+mod from;
 mod functions;
 mod generics;
 mod guess_random_number;
@@ -41,6 +42,7 @@ mod structs;
 mod threads;
 mod trait_objects;
 mod traits;
+mod try_from;
 mod tuples;
 mod types;
 mod unions;
@@ -95,4 +97,6 @@ fn main() {
     debug::run();
     display::run();
     primitives::run();
+    try_from::run();
+    from::run();
 }
