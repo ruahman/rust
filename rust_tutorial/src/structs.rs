@@ -1,18 +1,16 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
+#![allow(dead_code)]
+#![allow(unused_variables)]
 
 struct Point {
     x: f64,
     y: f64,
 }
 
-#[allow(dead_code)]
 struct Line {
     start: Point,
     end: Point,
 }
 
-#[allow(unused_variables)]
 fn stuctures() {
     let p = Point { x: 3.0, y: 4.0 };
     println!("point p is at ({}, {})", p.x, p.y);
@@ -54,21 +52,17 @@ impl Person {
     }
 }
 
-#[allow(dead_code)]
 struct Customer {
     name: String,
     address: String,
     balance: f32,
 }
 
-#[allow(dead_code)]
 struct Rectangle<T, U> {
     width: T,
     height: U,
 }
 
-#[allow(unused_variables)]
-#[allow(dead_code)]
 pub fn run() {
     stuctures();
 
