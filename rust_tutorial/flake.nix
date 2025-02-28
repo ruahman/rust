@@ -14,19 +14,21 @@
       devShells.${system}.default = pkgs.mkShell
       {
         packages = with pkgs; [ 
-            zsh 
+            bashInteractive
+            bash-completion
             rustc 
             cargo 
             cargo-watch 
             rust-analyzer 
-            cargo-tarpaulin 
+            rustfmt
+            clippy
+            vscode-extensions.vadimcn.vscode-lldb
           ]; # whatever you need
-
-        # Use zsh as the default shell
+          
+        shell = pkgs.bashInteractive;
         shellHook = ''
-          export SHELL=$(which zsh)
-          exec $SHELL
-        '';
+            ln -sf ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb .vadimcn.vscode-lldb
+          '';
       };
     };
 }

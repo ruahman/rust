@@ -1,3 +1,5 @@
+// how long the variable lives
+
 // a type of generic insuring that a reference is valid for as long as needed
 
 // every refrerence has a lifetime, which is the scope for which that reference is valid
@@ -55,6 +57,10 @@ pub fn run() {
     //     r = &x;
     // }
     // println!("r: {}", r);
+
+    // by default this is a staitc lifetime
+    #[allow(unused_variables)]
+    let x = "foobar";
 
     // lifetime is how long a variable will live
     // a static lifetime is the entire duration of the program

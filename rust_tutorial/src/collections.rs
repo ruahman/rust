@@ -2,6 +2,7 @@ use std::collections::{HashMap, HashSet};
 
 #[allow(clippy::vec_init_then_push)]
 pub fn run() {
+
     // vectors
     let mut a = Vec::new();
     a.push(1);
@@ -48,7 +49,9 @@ pub fn run() {
         println!("{}", *x);
     }
 
-    // this is better
+    // this is better,
+    // iterators provide reference
+    // so vec is not depleted
     for x in vec.iter() {
         println!("{}", x);
     }

@@ -11,15 +11,23 @@ where
     func(a, b)
 }
 
+fn greater_than(limit: u32) -> impl Fn(u32) -> bool {
+    // lifetime of limit stays with clojure
+    // that way limit is not dropped
+    // this is when you create a function generator, a function that returns a function
+    move |x| x > limit
+}
+
 // FnOnce: takes ownership of variables from the environment that the closure is defined in,
 // sort of like a move, you can only call the closure once since the environment is dropped
-// as soon as the closure is called
+// as soon as the closure is called.
 
 // Fn: borrows values from the environment
 
 // FnMut: can change the environment because it mutably borrows values
 
 pub fn run() {
+
     let can_vote = |age: i32| age >= 18;
     println!("{}", can_vote(42));
 
@@ -37,6 +45,7 @@ pub fn run() {
     let a = 6;
     println!("{0} + 1 = {1}", a, plus_one(a));
 
+    // closure
     let mut two = 6;
     let plus_two = |x: i32| {
         let mut result = x;
@@ -55,12 +64,6 @@ pub fn run() {
     print();
 }
 
-fn greater_than(limit: u32) -> impl Fn(u32) -> bool {
-    // lifetime of limit stays with clojure
-    // that way limit is not dropped
-    // this is when you create a function generator, a function that returns a function
-    move |x| x > limit
-}
 
 #[cfg(test)]
 mod tests {

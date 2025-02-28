@@ -13,15 +13,20 @@ pub fn run() {
     // arrays are fixed size
     let mut a: [i32; 5] = [1, 2, 3, 4, 5];
     println!("a len: {}", a.len());
+
+    // index and element
     a[0] = 123;
     println!("a[0]: {}", a[0]);
+
     // print the whole array
     println!("a: {:?}", a);
 
+    // loop through array
     for i in 0..a.len() {
         println!("a[{}]: {}", i, a[i]);
     }
 
+    // array of an array
     let mtx: [[f32; 3]; 2] = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]];
 
     for i in 0..mtx.len() {
@@ -44,7 +49,7 @@ pub fn run() {
     let slice: &[i32] = &X[1..3];
     println!("slice: {:?}", slice);
 
-    // this doesn't work
+    // this doesn't work, must be reference
     // let slice: &[i32] = X[1..3]
 
     // Fixed-size array

@@ -3,6 +3,7 @@ use std::cmp::Ordering;
 #[allow(unused_variables)]
 #[allow(clippy::manual_range_contains)]
 pub fn run() {
+
     //// if statements
     let age = 42;
 

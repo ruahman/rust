@@ -3,21 +3,25 @@ use std::thread;
 
 pub fn run() {
     println!("channels.rs");
+
     // transmitter and receiver
     let (tx, rx) = mpsc::channel();
 
+    // transmit "hi"
     thread::spawn(move || {
         let val = String::from("hi");
         tx.send(val).unwrap();
     });
 
-    // this will block until a value is sent
+    // receive "hi" 
     let received = rx.recv().unwrap();
     println!("Got: {}", received);
 
+    // you can have multiple transmiters
     let (tx2, rx2) = mpsc::channel();
     let tx3 = tx2.clone();
 
+    // transmitter 1
     thread::spawn(move || {
         let vals = vec![
             String::from("hi"),
@@ -32,6 +36,7 @@ pub fn run() {
         }
     });
 
+    // transmitter 2
     thread::spawn(move || {
         let vals = vec![
             String::from("hi3"),
@@ -46,6 +51,7 @@ pub fn run() {
         }
     });
 
+    // receive messages from both transmitters
     for received in rx2 {
         println!("Got: {}", received);
     }

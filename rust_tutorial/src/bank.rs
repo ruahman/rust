@@ -1,4 +1,6 @@
+// atomic reference counter
 use std::sync::Arc;
+// mutualy exclusive assessor
 use std::sync::Mutex;
 use std::thread;
 
@@ -9,6 +11,7 @@ struct Bank {
 fn withdraw(bank: &Arc<Mutex<Bank>>, amount: f32) {
     // before we can access the bank, we need to lock it
     let mut bank = bank.lock().unwrap();
+
     if bank.balance < 5.0 {
         println!("balance is low: {}", bank.balance);
         println!("can't withdraw anymore money")
