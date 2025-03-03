@@ -21,11 +21,7 @@ pub fn run() {
 
             write!(f, "[")?;
 
-
-
-
-
-            fFr (count, v) in vec.iter().enumerate() {
+            for (count, v) in vec.iter().enumerate() {
                 // For every element except the first, add a comma.
                 // Use the ? operator to return on errors.
                 if count != 0 {
@@ -33,8 +29,8 @@ pub fn run() {
                 }
                 write!(f, "{}", v)?;
             }
-
-            // Close the opened bracket and return a fmt::Result value.
+            //
+            // // Close the opened bracket and return a fmt::Result value.
             write!(f, "]")
         }
     }
