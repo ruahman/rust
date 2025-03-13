@@ -24,7 +24,7 @@ pub fn run() {
 
     // you can do this because you are using a reference counter
     // multiple threads can access the same memory
-    // both name and p.name point to the same memory because they are using a reference counter 
+    // both name and p.name point to the same memory because they are using a reference counter
     // atomic refrence counter is a refrence counter that works between threads
     // it make the memory access thread safe
     println!("{}", name);
@@ -42,9 +42,11 @@ pub fn run() {
         // Arc only allow multiple threads to access memeory
         // but to change memory a mutex has to be used to make sure only one thread
         // at a time has access to it.
-        
+
         // lock the mutex before you can change anything
         let mut state = p.state.lock().unwrap();
+
+        // now change the state
         state.clear();
         state.push_str("happy");
     })

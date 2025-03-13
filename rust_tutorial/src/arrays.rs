@@ -49,7 +49,7 @@ pub fn run() {
     let slice: &[i32] = &X[1..3];
     println!("slice: {:?}", slice);
 
-    // this doesn't work, must be reference
+    // this doesn't work, must be reference of the array
     // let slice: &[i32] = X[1..3]
 
     // Fixed-size array
