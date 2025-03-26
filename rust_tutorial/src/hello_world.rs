@@ -1,7 +1,6 @@
 #![allow(dead_code)]
-#![allow(unused_imports)]
 
-pub fn run() {
+pub fn hello_world() {
     println!("Hello, world!");
 }
 
@@ -11,6 +10,6 @@ mod tests {
 
     #[test]
     fn test_hello_world() {
-        run()
+        hello_world();
     }
 }

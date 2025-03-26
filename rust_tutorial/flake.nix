@@ -27,10 +27,8 @@
           
         shell = pkgs.bashInteractive;
         shellHook = ''
-            if [ ! -L  .vadimcn.vscode-lldb ]; then
-              ln -sf ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb .vadimcn.vscode-lldb
-            fi
-          '';
+          ln -sf ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb .vadimcn.vscode-lldb
+        '';
       };
     };
 }

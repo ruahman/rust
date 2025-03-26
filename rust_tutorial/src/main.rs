@@ -11,6 +11,7 @@ mod display;
 mod enumerations;
 mod enums;
 mod error_handling;
+mod formatted_print;
 mod formatting;
 mod from;
 mod functions;
@@ -50,7 +51,7 @@ mod variables;
 mod vectors;
 
 fn main() {
-    hello_world::run();
+    // hello_world::run();
     variables::run();
     conditions::run();
     variables::run();
