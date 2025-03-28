@@ -16,6 +16,7 @@ mod formatting;
 mod from;
 mod functions;
 mod generics;
+mod literals;
 // mod guess_random_number;
 mod hashmaps;
 mod hashsets;
@@ -95,9 +96,9 @@ fn main() {
     trait_objects::run();
     io::run();
     // guess_random_number::run();
-    debug::run();
-    display::run();
-    primitives::run();
+    // debug::run();
+    // display::run();
+    // primitives::run();
     try_from::run();
     from::run();
 }

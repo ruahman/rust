@@ -1,6 +1,20 @@
-#[allow(dead_code)]
+#![allow(dead_code)]
 
-pub fn run() {
+pub fn debug() {
+    // All types can derive (automatically create) the fmt::Debug implementation.
+    // This is not true for fmt::Display which must be manually implemented;
+
+    // This structure cannot be printed either with `fmt::Display` or
+    // with `fmt::Debug`.
+    struct UnPrintable(i32);
+
+    // The `derive` attribute automatically creates the implementation
+    // required to make this `struct` printable with `fmt::Debug`.
+    #[derive(Debug)]
+    struct DebugPrintable(i32);
+
+    // All std library types are automatically printable with {:?} too:
+
     // Derive the `fmt::Debug` implementation for `Structure`. `Structure`
     // is a structure which contains a single `i32`.
     #[derive(Debug)]
@@ -38,6 +52,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_debug() {
-        run();
+        debug();
     }
 }

@@ -1,6 +1,11 @@
+#![allow(dead_code)]
+
+// Import (via `use`) the `fmt` module to make it available.
 use std::fmt;
 
-pub fn run() {
+pub fn display() {
+    // Define a structure for which `fmt::Display` will be implemented. This is
+    // a tuple struct named `Structure` that contains an `i32`.
     struct Structure(i32);
 
     // To use the `{}` marker, the trait `fmt::Display` must be implemented
@@ -44,6 +49,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_display() {
-        run();
+        display();
     }
 }
