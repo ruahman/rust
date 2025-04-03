@@ -1,3 +1,13 @@
+#![allow(dead_code)]
+
+// an array is a collection of objects of the same type T.
+// their length is known at compile time and is part of their type signature
+
+// slices are similar to arrays, but their lenght is not known at compile time.
+// Instead, a slice is a two-word object; the first word is a pointer to the data,
+// the second word is the lenght of the slice.
+// Slices can be used to borrow a section of an array
+
 use std::mem;
 
 static X: [i32; 5] = [1, 2, 3, 4, 5];
@@ -9,7 +19,7 @@ fn analyze_slice(slice: &[i32]) {
 }
 
 #[allow(clippy::needless_range_loop)]
-pub fn run() {
+pub fn arrays_and_slices() {
     // arrays are fixed size
     let mut a: [i32; 5] = [1, 2, 3, 4, 5];
     println!("a len: {}", a.len());
@@ -90,8 +100,6 @@ pub fn run() {
             None => println!("Slow down! {} is too far!", i),
         }
     }
-
-    // return Arrays { numbers, slice };
 }
 
 #[cfg(test)]
@@ -100,6 +108,6 @@ mod tests {
 
     #[test]
     fn test_arrays() {
-        run();
+        arrays_and_slices();
     }
 }

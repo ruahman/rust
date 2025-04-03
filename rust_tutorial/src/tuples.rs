@@ -1,5 +1,8 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
+// a tuple is a collection of values of different types.
+// functions can use tuples to return multiple values.
 
 fn sum_and_product(x: i32, y: i32) -> (i32, i32) {
     (x + y, x * y)
@@ -15,11 +18,9 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
 
 // The following struct is for the activity.
 #[derive(Debug)]
-#[allow(dead_code)]
 struct Matrix(f32, f32, f32, f32);
 
-#[allow(unused_variables)]
-pub fn run() {
+pub fn tuples() {
     //// tuple
     let x = 3;
     let y = 4;
@@ -70,7 +71,7 @@ pub fn run() {
     let pair = (1, true);
     println!("Pair is {:?}", pair);
 
-    println!("Uhe reversed pair is {:?}", reverse(pair));
+    println!("The reversed pair is {:?}", reverse(pair));
 
     // To create one element tuples, the comma is required to tell them apart
     // from a literal surrounded by parentheses.
@@ -94,7 +95,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_tuple() {
-        run();
+    fn test_tuples() {
+        tuples();
     }
 }

@@ -1,4 +1,4 @@
-mod arrays;
+mod arrays_and_slices;
 mod atomic_reference_counter;
 mod bank;
 mod channels;
@@ -52,15 +52,12 @@ mod variables;
 mod vectors;
 
 fn main() {
-    // hello_world::run();
     variables::run();
     conditions::run();
     variables::run();
     enumerations::run();
     unions::run();
     options::run();
-    arrays::run();
-    tuples::run();
     pattern_matching::run();
     generics::run();
     strings::run();
@@ -81,7 +78,6 @@ fn main() {
     error_handling::run();
     smart_pointers::run();
     bank::run();
-    enums::run();
     slices::run();
     results::run();
     collections::run();
