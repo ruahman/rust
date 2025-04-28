@@ -10,7 +10,7 @@ check:
 	@echo "check..."
 	cargo check
 
-clippy:
+lint:
 	@echo "Linting..."
 	cargo clippy
 
@@ -25,15 +25,3 @@ test t="":
     else \
     cargo test "{{t}}" -- --nocapture; \
     fi;
-
-flake param="develop":
-    @echo "Running flake recipe";
-    @if [ "{{param}}" = "develop" ]; then \
-    nix develop; \
-    elif [ "{{param}}" = "allow" ]; then \
-    direnv allow; \
-    elif [ "{{param}}" = "disallow" ]; then \
-    direnv disallow; \
-    elif [ "{{param}}" = "clean" ]; then \
-    rm flake.lock; \
-    fi

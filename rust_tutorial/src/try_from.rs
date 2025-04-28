@@ -1,20 +1,33 @@
 #![allow(dead_code)]
 
+// simular to From and Into traits except they can return an error.
+// they return a Result
+
 // incase of an error in conversion use TryFrom
 // since there is no try catch in rust
 
 use std::convert::{TryFrom, TryInto};
 
-pub fn run() {
+pub fn try_from() {
     println!("try from");
+
     let t1 = (String::from("Jim"), 20);
     let t2 = (String::from("Joe"), 30);
+
     let p1 = Person::try_from(t1);
     let p2: Result<Person, String> = t2.try_into();
+
     println!("{p1:?},{p2:?}");
 
+    // TryFrom
     assert_eq!(EvenNumber::try_from(8), Ok(EvenNumber(8)));
     assert_eq!(EvenNumber::try_from(5), Err(()));
+
+    // TryInto
+    let result: Result<EvenNumber, ()> = 8i32.try_into();
+    assert_eq!(result, Ok(EvenNumber(8)));
+    let result: Result<EvenNumber, ()> = 5i32.try_into();
+    assert_eq!(result, Err(()));
 }
 
 #[derive(Debug)]
@@ -57,6 +70,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_try_from() {
-        run();
+        try_from();
     }
 }

@@ -27,7 +27,7 @@
           
         shell = pkgs.bashInteractive;
         shellHook = ''
-          ln -sf ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb .vadimcn.vscode-lldb
+          export CODELLDB=${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb
         '';
       };
     };

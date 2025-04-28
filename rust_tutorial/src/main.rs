@@ -23,7 +23,7 @@ mod hashsets;
 mod hello_world;
 mod io;
 mod iterators;
-mod lifetime;
+mod lifetimes;
 mod loops;
 mod methods;
 mod modules;
@@ -59,7 +59,7 @@ fn main() {
     unions::run();
     options::run();
     pattern_matching::run();
-    generics::run();
+    // generics::run();
     strings::run();
     hashmaps::run();
     hashsets::run();
@@ -70,7 +70,7 @@ fn main() {
     traits::run();
     formatting::run();
     ownership::run();
-    lifetime::run();
+    // lifetime::run();
     reference_counter::run();
     atomic_reference_counter::run();
     threads::run();
@@ -95,6 +95,6 @@ fn main() {
     // debug::run();
     // display::run();
     // primitives::run();
-    try_from::run();
-    from::run();
+    // try_from::run();
+    // from::run();
 }

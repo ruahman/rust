@@ -20,6 +20,15 @@ enum Color {
     Rgb { red: u8, blue: u8, green: u8 },
 }
 
+impl Color {
+    fn rgb(self) -> (u8, u8, u8) {
+        todo!()
+    }
+    fn new(r: u8, g: u8, b: u8) -> Self {
+        todo!()
+    }
+}
+
 fn move_test(m: Movement) {
     match m {
         Movement::Up => println!("move up"),

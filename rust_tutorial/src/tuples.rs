@@ -21,6 +21,11 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
 struct Matrix(f32, f32, f32, f32);
 
 pub fn tuples() {
+    // unit tuple,
+    // a tuple with nothing in it,
+    // used for functions that have no return value
+    let unit: () = ();
+
     //// tuple
     let x = 3;
     let y = 4;

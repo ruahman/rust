@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::ops::Add;
 
 // this function will work with any type that implements the Add trait
@@ -25,7 +27,19 @@ impl Point<f32> {
     }
 }
 
-pub fn run() {
+// fn largest<T: PartialOrd>(list: &[T]) -> T {
+//     let mut largest = list[0];
+//
+//     for &item in list {
+//         if item > largest {
+//             largest = item;
+//         }
+//     }
+//
+//     largest
+// }
+
+pub fn generics() {
     println!("{}", get_sum_gen(2, 2));
     println!("{}", get_sum_gen(2.2, 2.2));
     let a: Point<i32> = Point { x: 1, y: 2 };
@@ -42,6 +56,6 @@ mod tests {
 
     #[test]
     fn test_generics() {
-        run()
+        generics()
     }
 }

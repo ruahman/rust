@@ -26,6 +26,12 @@ struct Point {
     y: f64,
 }
 
+struct Point3 {
+    x: f64,
+    y: f64,
+    z: f64,
+}
+
 // Structs can be reused as fields of another struct
 struct RectangleReused {
     // A rectangle can be specified by where the top left and bottom right
@@ -40,6 +46,14 @@ struct Line {
 }
 
 fn stuctures() {
+    let point = Point3 {
+        x: 1.1,
+        y: 2.2,
+        z: 3.3,
+    };
+    // just get x, ignore everything else
+    let Point3 { x, .. } = point;
+    println!("{x}");
     let p = Point { x: 3.0, y: 4.0 };
     println!("point p is at ({}, {})", p.x, p.y);
 
