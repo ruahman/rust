@@ -1,6 +1,6 @@
 #[allow(unused_variables)]
 #[allow(dead_code)]
-pub fn run() {
+pub fn vectors() {
     //// vector
 
     // a vector is something that grows dynamically
@@ -9,6 +9,7 @@ pub fn run() {
     let mut vec2 = vec![1, 2, 3];
     vec2.push(4);
     println!("fst: {}", vec2[0]);
+    println!("len: {}", vec2.len());
 
     // get returns an option type
     match vec2.get(1) {
@@ -52,10 +53,10 @@ pub fn run() {
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::run;
+    use super::vectors;
 
     #[test]
     fn test_vectors() {
-        run()
+        vectors()
     }
 }
