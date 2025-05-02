@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 // this is a set of rules that manage memory management,
 // if any of these rules are broken the compiler will complain.
 
@@ -9,11 +12,6 @@
 // values on stack are copied
 // values on heap are moved
 
-// ownership solves
-// 1. memory leaks (memory that is not freed after out of scope)
-// 2. double free (free memory that is already freed)
-// 3. dangling pointers (pointers that point to nothing)
-
 // each value has an owner
 // there is only one owner at a time
 // when the owner goes out of scope the value disapears too
@@ -22,12 +20,14 @@
 // mutable refrences
 // there can be only one mutable reference to a resource
 // they must have the same lifescycle
+// also you cant have a mutable borrow while you also have a imutalbe borrow.
+// it either one mutable referenece or any number of immuctable references
+// this is for race conditions
 
 // the stack is fixed size and the heap is dynamic size
 // the size of the stack is calculated at compile time
 // the size of the heep can change at runtime
 
-#[allow(dead_code)]
 #[derive(Debug)]
 pub struct Ownership {
     str2: String,
@@ -38,9 +38,7 @@ pub struct Ownership {
     m: Vec<i32>,
 }
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
-pub fn run() -> Ownership {
+pub fn ownership() -> Ownership {
     // the value can move to another owner or barrow
     // the owner is associated  function scope
 
@@ -243,10 +241,10 @@ fn change(some_string: &mut String) {
 
 #[cfg(test)]
 mod tests {
-    use super::run;
+    use super::ownership;
     #[test]
     fn test_ownership() {
-        let result = run();
+        let result = ownership();
         assert_eq!(result.str2, "hello world");
         assert_eq!(result.str6, "test is happy");
         assert_eq!(result.g, 42);

@@ -1,7 +1,5 @@
-// #[allow(unused_assignments)]
-// #[allow(dead_code)]
-// #[allow(unused_variables)]
-// #[allow(unused_mut)]
+#![allow(dead_code)]
+
 use std::mem;
 
 // this is computed at compile time,
@@ -12,8 +10,7 @@ const MEANING_OF_LIFE: u8 = 42; // no fixed address
 // static variables have fixed address
 static Z: i32 = 123; // this has an address
 
-#[allow(dead_code)]
-pub fn run() {
+pub fn variables() {
     let a: u8 = 123; // unsigned 8 bits
     println!("a: {a}"); // immutable
 
@@ -103,10 +100,10 @@ pub fn run() {
 
 #[cfg(test)]
 mod tests {
-    use super::run;
+    use super::*;
 
     #[test]
     fn test_variables() {
-        run()
+        variables()
     }
 }

@@ -52,9 +52,8 @@ mod variables;
 mod vectors;
 
 fn main() {
-    variables::run();
     conditions::run();
-    variables::run();
+    // variables::run();
     enumerations::run();
     unions::run();
     options::run();
@@ -69,7 +68,7 @@ fn main() {
     closures::run();
     traits::run();
     formatting::run();
-    ownership::run();
+    // ownership::run();
     // lifetime::run();
     reference_counter::run();
     atomic_reference_counter::run();

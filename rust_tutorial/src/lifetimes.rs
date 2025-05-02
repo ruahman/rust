@@ -1,6 +1,12 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
+// a lifetime is when a value is allocated and deallocated
+
+// when ever you have references in a struct you need to specify lifetiems
+
+// lifetime elision,  sometime you can ommit specifying a lifetime, rust can figure it out.
+
 // rust allows only one owener of memory but you are allowed to have multiple
 // references to that memory.
 // Lifetime is a way of inforcing that a reference is valid.
@@ -61,7 +67,6 @@ impl<'a> Person2<'a> {
     }
 }
 
-#[allow(clippy::needless_lifetimes)]
 // with lifetimes you spacify that parameter and return have the same lifetime
 // lifetimes guarante that the memory in the result will still be valid when return value uses it
 // when you handle refrences lifetimes are always used in the background.
@@ -100,8 +105,6 @@ fn get_str_ref<'a>(param_1: &'a str, param_2: &'a str) -> &'a str {
 
 // you only need to specifi lifetime if you return a reference.
 // it doesn't mater if you have parameters that have lifetimes.
-#[allow(clippy::ptr_arg)]
-#[allow(clippy::extra_unused_lifetimes)]
 fn test_2<'a>(param_1: &Vec<f64>) -> Vec<f64> {
     param_1.clone()
 }
@@ -132,7 +135,12 @@ fn test_3(param_1: &str) -> &str {
 // }
 
 // const has a lifetime of 'static
+// it means that is has the lifetime of the entire program
 const SOME_INT: i32 = 30;
+// string literanal are always on staitc
+// let name = "Sam";
+// let name = &'static str = "Sam";
+// let name = &str = "Sam";
 
 pub fn lifetimes() {
     let a;
@@ -158,7 +166,6 @@ pub fn lifetimes() {
     // println!("r: {}", r);
 
     // by default this is a staitc lifetime
-    #[allow(unused_variables)]
     let x = "foobar";
 
     // lifetime is how long a variable will live
