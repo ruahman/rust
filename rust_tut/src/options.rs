@@ -1,5 +1,7 @@
-#[allow(clippy::unnecessary_literal_unwrap)]
-pub fn run() {
+#![allow(dead_code)]
+
+// options are enums
+pub fn options() {
     // it's either someting or nothing
     let r = Some(32);
 
@@ -17,6 +19,11 @@ pub fn run() {
     let r3 = Some(99);
     let x = r3.unwrap();
     println!("{:?}", x);
+
+    let foo = None;
+
+    let num = foo.unwrap_or(33);
+    dbg!(num);
 }
 
 #[cfg(test)]
@@ -24,6 +31,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_options() {
-        run();
+        options();
     }
 }

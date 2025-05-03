@@ -56,13 +56,13 @@ fn main() {
     // variables::run();
     enumerations::run();
     unions::run();
-    options::run();
+    // options::run();
     pattern_matching::run();
     // generics::run();
     // strings::run();
     hashmaps::run();
     hashsets::run();
-    iterators::run();
+    // iterators::run();
     functions::run();
     methods::run();
     closures::run();
@@ -78,7 +78,7 @@ fn main() {
     smart_pointers::run();
     bank::run();
     slices::run();
-    results::run();
+    // results::run();
     collections::run();
     data_types::run();
     types::run();

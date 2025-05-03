@@ -11,7 +11,6 @@ enum Movement {
     Right,
 }
 
-#[allow(dead_code)]
 enum Color {
     Red,
     Green,

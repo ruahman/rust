@@ -1,4 +1,7 @@
-#[allow(dead_code)]
+#![allow(dead_code)]
+
+// result is just another enum
+
 enum Choice {
     Ant(i32),
     Bee(i32),
@@ -24,7 +27,7 @@ fn pick_choice(c: Choice) -> Result<i32, String> {
     Ok(res)
 }
 
-pub fn run() {
+pub fn results() {
     let c = Choice::Ant(32);
     let result = get_result(c);
     match result {
@@ -42,6 +45,12 @@ pub fn run() {
         Ok(x) => println!("result: {}", x),
         Err(e) => println!("error?: {}", e),
     }
+
+    let foo: Result<String, String> = Ok::<String, String>("This is the result".into());
+    if foo.is_ok() {
+        let res = foo.unwrap();
+        println!("I'm okay: {}", res);
+    }
 }
 
 #[cfg(test)]
@@ -49,6 +58,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_results() {
-        run();
+        results();
     }
 }
