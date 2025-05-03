@@ -1,3 +1,5 @@
+// for loops use ranges
+
 pub fn run() {
     //// loops
 

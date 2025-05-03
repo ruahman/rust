@@ -59,7 +59,7 @@ fn main() {
     options::run();
     pattern_matching::run();
     // generics::run();
-    strings::run();
+    // strings::run();
     hashmaps::run();
     hashsets::run();
     iterators::run();

@@ -1,6 +1,14 @@
-#[allow(dead_code)]
-#[allow(unused_mut)]
-pub fn run() {
+#![allow(dead_code)]
+#![allow(unused_mut)]
+
+// a str is just a slice of a String
+
+// a String has a pointer,
+// length,
+// and capacity: how much more data can be added before it needs to be realocated somewhere else
+// a str is just a pointer and length
+
+pub fn strings() {
     //// strings
 
     // String is heep allocated, owns the data
@@ -117,10 +125,10 @@ pub fn run() {
 // cargo test strings::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::run;
+    use super::strings;
 
     #[test]
     fn test_strings() {
-        run()
+        strings()
     }
 }
