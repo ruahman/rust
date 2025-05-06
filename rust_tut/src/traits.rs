@@ -1,6 +1,11 @@
 use std::fmt::Debug;
+use std::fmt::Display;
 use std::ops::Add;
 use std::ops::Mul;
+
+// to use the trait you must import the trait in the scope you are using it.
+
+// they are like interfaces
 
 // a trait is a collection of methods that an object must implement
 // in order to be classified as implementing that trait
@@ -104,7 +109,6 @@ struct Circle {
     width: f32,
 }
 
-#[allow(clippy::approx_constant)]
 const PI: f32 = 3.14;
 
 // implement the shape trait for the rectangle
@@ -149,6 +153,20 @@ where
 #[derive(Debug)]
 struct Person {
     name: String,
+}
+
+// implement default trait for Person
+impl Default for Person {
+    fn default() -> Self {
+        Person {
+            name: String::from("foobar"),
+        }
+    }
+}
+impl Display for Person {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        return write!(f, "Foobar {}", self.name);
+    }
 }
 
 // Into allows automatic conversion of a type into another whenever possible

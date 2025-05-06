@@ -1,5 +1,7 @@
 #![allow(dead_code)]
 
+// you have to create an iterator and then run it.
+
 // an iterator is just a object the iterates through a collection
 pub fn iterators() {
     let vec = vec![1, 2, 3, 4, 5];
@@ -50,6 +52,70 @@ pub fn iterators() {
         .collect();
 
     dbg!(&foo4);
+
+    struct RectIter {
+        points: Vec<(f64, f64)>,
+        idx: usize,
+    }
+
+    #[derive(Debug)]
+    struct Rect {
+        x: f64,
+        y: f64,
+        width: f64,
+        height: f64,
+    }
+
+    // iterator for rec
+    impl Iterator for RectIter {
+        type Item = (f64, f64);
+
+        fn next(&mut self) -> Option<Self::Item> {
+            if self.idx >= self.points.len() {
+                return None;
+            }
+
+            let point = self.points[self.idx];
+            self.idx += 1;
+            Some(point)
+        }
+    }
+
+    // generate iterator for &Rect so that iterator does not cosume rect
+    impl IntoIterator for &Rect {
+        type Item = (f64, f64);
+        type IntoIter = RectIter;
+
+        fn into_iter(self) -> Self::IntoIter {
+            return RectIter {
+                idx: 0,
+                points: vec![
+                    (self.x, self.y),
+                    (self.x + self.width, self.y),
+                    (self.x, self.y + self.height),
+                    (self.x + self.width, self.y + self.height),
+                ],
+            };
+        }
+    }
+
+    impl Default for Rect {
+        fn default() -> Self {
+            Rect {
+                x: 0.0,
+                y: 0.0,
+                width: 10.0,
+                height: 10.0,
+            }
+        }
+    }
+
+    let rect = Rect::default();
+
+    for point in &rect {
+        dbg!(point);
+    }
+    dbg!(rect);
 }
 
 #[cfg(test)]
