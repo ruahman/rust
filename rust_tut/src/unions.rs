@@ -21,14 +21,14 @@ fn process_value(iof: IntOrFloat) {
     }
 }
 
-pub fn run() {
+pub fn unions() {
     let mut iof = IntOrFloat { i: 123 };
     iof.i = 234;
 
     // you don't know which type is in use,
     // so you have to use unsafe
     // since this might be empty since it can be either an int or a float
-    let value = unsafe { iof.i };
+    let value = unsafe { iof.i }; // to avoid this use a match statement
     println!("iof.i = {}", value);
 
     process_value(IntOrFloat { i: 42 });
@@ -42,6 +42,6 @@ mod tests {
 
     #[test]
     fn test_unions() {
-        run();
+        unions();
     }
 }

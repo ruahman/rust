@@ -12,6 +12,11 @@ pub fn iterators() {
     // }
 
     // this is better
+    for x in &vec {
+        println!("&{}", x);
+    }
+
+    // this is better also
     for x in vec.iter() {
         println!("{}", x);
     }
@@ -41,7 +46,7 @@ pub fn iterators() {
 
     dbg!(&foo2);
 
-    // into_iter consumes your collection
+    // into_iter consumes your collection and moves it to another datatype
     let foo3: Vec<_> = vec![1, 2, 3].into_iter().map(|x| x * x).collect();
     dbg!(&foo3);
 

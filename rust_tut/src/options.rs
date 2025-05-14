@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-// options are enums
+// options are basicaly a enum of Some(v) or None
 pub fn options() {
     // it's either someting or nothing
     let r = Some(32);
@@ -21,6 +21,7 @@ pub fn options() {
     println!("{:?}", x);
 
     let foo = None;
+    // let num = foo.unwrap(); // this will cause a problem if the value is None
 
     let num = foo.unwrap_or(33);
     dbg!(num);

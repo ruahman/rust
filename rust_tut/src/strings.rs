@@ -116,7 +116,7 @@ pub fn strings() {
     let s: &'static str = "hello there!";
     assert!(s == "hello there!");
 
-    // format
+    // format creates a String on heep
     let name = "Diego";
     let greeting = format!("Hi, I'm {}", name);
     assert!(greeting == "Hi, I'm Diego");

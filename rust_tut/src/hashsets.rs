@@ -1,7 +1,8 @@
+#![allow(dead_code)]
+
 use std::collections::HashSet;
 
-#[allow(clippy::just_underscores_and_digits)]
-pub fn run() {
+pub fn hashsets() {
     let mut greeks = HashSet::new();
     greeks.insert("gamma");
     greeks.insert("delta");
@@ -46,6 +47,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_hashsets() {
-        run();
+        hashsets();
     }
 }

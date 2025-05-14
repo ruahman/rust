@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::fmt::Debug;
 use std::fmt::Display;
 use std::ops::Add;
@@ -131,13 +133,17 @@ impl Shape for Circle {
     }
 }
 
-// take in parameter that implements the shape trait
-// and the debug trait sot that we can print it
+// take in parameter that has implemented the shape trait
+// and the debug trait so that we can print it
+// a seperate implementation for print_info is made for each type you have
+// created that has implemented both Shape and Debug.
+// which print_info impmlementation is run is determend at compile time
 fn print_info(shape: impl Shape + Debug) {
     println!("the area is {}", shape.area());
 }
 
-// you can also use a generics to define the trait parameter
+// you can also rewrite this using generics to define
+// a type that has implemented Shape and debug
 fn print_info2<T: Shape + Debug>(shape: T) {
     println!("{}", shape.area())
 }
@@ -192,6 +198,7 @@ impl Drop for Person {
 // implement the add trait for the person
 // this is how you can overload the + operator
 impl Add for Person {
+    // Output is an associated type for a trait
     // you have to specify the output type if you want to overload the + operator
     type Output = Person;
 
@@ -219,7 +226,7 @@ struct Complex<T> {
 
 impl<T> Complex<T> {
     fn new(re: T, im: T) -> Complex<T> {
-        Complex::<T> { re, im }
+        Complex::<T> { re, im } // turbo fish
     }
 }
 
@@ -227,7 +234,7 @@ impl<T> Complex<T> {
 // this can take in any type that implements the add trait
 impl<T> Add for Complex<T>
 where
-    T: Add<Output = T>,
+    T: Add<Output = T>, // T must have Add trait implemented which setup Output to T
 {
     // to overide add you need to specify the output type
     type Output = Complex<T>;
@@ -286,8 +293,7 @@ fn print_it_dynamic(z: &dyn Printable) {
 // but you have to specify it as a Box<dyn Trait>
 // so that the compiler knows that the method calls will be resolved at runtime
 
-#[allow(clippy::vec_init_then_push)]
-pub fn run() {
+pub fn traits() {
     // let h = Human { name: "John" };
     // let h = Human::create("John");
     let h: Human = Animal::create("John");
@@ -360,7 +366,6 @@ pub fn run() {
         }
     }
 
-    #[allow(dead_code)]
     struct Suv {}
     impl LandCapable for Suv {
         fn drive(&self) {
@@ -402,10 +407,10 @@ pub fn run() {
 // cargo test variables::tests -- --nocapture
 #[cfg(test)]
 mod tests {
-    use super::run;
+    use super::traits;
 
     #[test]
     fn test_traits() {
-        run()
+        traits()
     }
 }

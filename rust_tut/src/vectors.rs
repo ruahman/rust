@@ -48,6 +48,10 @@ pub fn vectors() {
     }
 
     println!("{:?}", numbers);
+
+    while let Some(x) = numbers.pop() {
+        println!("pop {}", x);
+    }
 }
 
 // cargo test variables::tests -- --nocapture

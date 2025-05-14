@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 #[allow(dead_code)]
-pub fn run() {
+pub fn hashmap() {
     let mut shapes = HashMap::new();
     shapes.insert(String::from("triangle"), 3);
     shapes.insert(String::from("square"), 4);
@@ -32,10 +32,10 @@ pub fn run() {
 
 #[cfg(test)]
 mod tests {
-    use super::run;
+    use super::hashmap;
 
     #[test]
     fn test_hashmap() {
-        run()
+        hashmap()
     }
 }
