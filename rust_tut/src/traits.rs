@@ -5,6 +5,12 @@ use std::fmt::Display;
 use std::ops::Add;
 use std::ops::Mul;
 
+// if you use a reference of a trait as a parameter than it will use
+// dynamic dispacting.
+
+// you can't make a vec of traits. they have to be references
+// or box of items could work to
+
 // to use the trait you must import the trait in the scope you are using it.
 
 // they are like interfaces
@@ -24,12 +30,10 @@ trait Animal {
 }
 
 // a derivable trait is a trait that is automatically implemented by the compiler
-// for a struct or enum
 // #[derive(Debug)] allows you to print the struct or enum
 // #[derive(clone)] allows you to clone the struct or enum
 // #[derive(copy)] allows you to copy the struct or enum
 
-#[allow(dead_code)]
 #[derive(Clone, Debug)]
 struct Dog {
     name: &'static str,
@@ -314,6 +318,7 @@ pub fn traits() {
     // this wont work because the animal trait size is not known at compile time
     // let animals: Vec<Animal> = Vec::new();
 
+    // these could work though
     // creatures.push(Box::new(Human::create("John")));
     // creatures.push(Cat::create("Whiskers"));
 
@@ -379,7 +384,8 @@ pub fn traits() {
 
     // this is dynamic dispatch because the method to call is determined at runtime
     // which make the program size smaller
-    // but there is a runtime cost
+    // but there is a runtime cost.
+    // references to traits always use dynamic dispactch
     fn road_trip_dyn(car: &dyn LandCapable) {
         car.drive();
     }
@@ -400,6 +406,38 @@ pub fn traits() {
     road_trip_dyn(&car);
     road_trip_static(&car);
     road_trip_static2(&car);
+
+    fn test_dyn(car: &dyn LandCapable) {
+        car.drive();
+    }
+
+    let my_vec_of_traits: Vec<Box<dyn LandCapable>> = vec![Box::new(Sedan {}), Box::new(Suv {})];
+    for item in my_vec_of_traits {
+        item.drive();
+
+        let foo: &dyn LandCapable = &*item;
+        // you must return reference to dynamic trait
+        // a dynamic trait means that you don't know the structur in the memory,
+        // you must consult another table
+        let bar = &*item; // fisrt you deref the box and the get address
+
+        println!("foo");
+        foo.drive();
+        bar.drive();
+    }
+
+    let car = Sedan {};
+    println!("test dyn");
+    test_dyn(&car);
+
+    fn return_dyn() -> Box<dyn LandCapable> {
+        let car = Suv {};
+        Box::new(car)
+    }
+
+    let car = return_dyn();
+    println!("return dyn");
+    car.drive()
 
     // generics and structs usually work hand in hand
 }
