@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // a closure is an anonymous function that can capture values from the scope
 // in which it is defined
 
@@ -27,7 +28,6 @@ fn greater_than(limit: u32) -> impl Fn(u32) -> bool {
 // FnMut: can change the environment because it mutably borrows values
 
 pub fn run() {
-
     let can_vote = |age: i32| age >= 18;
     println!("{}", can_vote(42));
 
@@ -63,7 +63,6 @@ pub fn run() {
     let print = move || println!("{}", color);
     print();
 }
-
 
 #[cfg(test)]
 mod tests {
