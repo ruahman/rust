@@ -4,7 +4,7 @@ use std::sync::{Arc, Mutex};
 use std::thread;
 
 struct Person {
-    // if you just want multiple thread to read from a var use Arc
+    // if you just want multiple thread to just read from a var use Arc
     name: Arc<String>,
 
     // if you want multiple thread to read and write to a variable then use Arc
@@ -17,7 +17,7 @@ impl Person {
         Self { name, state }
     }
 }
-pub fn run() {
+pub fn atomic_reference_counter() {
     let name = Arc::new("John".to_string());
     let state = Arc::new(Mutex::new("sad".to_string()));
     let p = Person::new(name.clone(), state.clone());
@@ -59,6 +59,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_atomic_reference_counter() {
-        run();
+        atomic_reference_counter();
     }
 }

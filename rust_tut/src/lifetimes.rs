@@ -46,12 +46,15 @@ struct Person {
 // make sure you give a life time to the struct and the field that will reference
 // the other struct
 // that way the compiler will know that the struct that is being referenced
-// will live as long as the struct that is referencing it
+// will live as long as the struct that is referencing it,
+// you have to guarante that the life time of the reference is the same as
+// the lifetime of the struct
 struct Company<'z> {
     name: String,
     ceo: &'z Person,
 }
 
+// name will exist as long a person exists
 struct Person2<'a> {
     name: &'a str,
 }

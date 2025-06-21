@@ -1,7 +1,7 @@
 use std::sync::{Arc, Mutex};
 use std::thread;
 
-pub fn run() {
+pub fn mutex() {
     println!("mutex.rs");
 
     // counter can have multiple owners and can be shared between threads
@@ -32,6 +32,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_mutex() {
-        run();
+        mutex();
     }
 }

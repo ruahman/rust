@@ -16,12 +16,16 @@ impl Person {
     }
 }
 
-pub fn run() {
+pub fn reference_counter() {
     let name = Rc::new("John".to_string());
     println!("name count: {}", Rc::strong_count(&name));
     {
+        // instead of clone the string it just makes another refrence
         let person = Person::new(name.clone());
         person.greet();
+        println!("name count: {}", Rc::strong_count(&name));
+        let another_referenct = name.clone();
+        println!("another_reference: {}", another_referenct);
         println!("name count: {}", Rc::strong_count(&name));
     }
     println!("name count: {}", Rc::strong_count(&name));
@@ -34,6 +38,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_reference_counter() {
-        run();
+        reference_counter();
     }
 }
