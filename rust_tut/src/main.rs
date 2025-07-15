@@ -16,14 +16,13 @@ mod formatting;
 mod from;
 mod functions;
 mod generics;
-mod literals;
-// mod guess_random_number;
 mod hashmaps;
 mod hashsets;
 mod hello_world;
 mod io;
 mod iterators;
 mod lifetimes;
+mod literals;
 mod loops;
 mod methods;
 mod modules;
@@ -52,5 +51,5 @@ mod variables;
 mod vectors;
 
 fn main() {
-    println!("hello world");
+    println!("hello world test");
 }

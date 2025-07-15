@@ -69,6 +69,11 @@ pub fn run() {
     let animals = ["dog", "cat", "mouse"];
     let anim = &animals[1..3];
     println!("anim: {anim:?}");
+
+    // remember that a string literal is just a slice from global memory
+    let string_literal = "hello world";
+    let word1 = &string_literal[..5];
+    println!("{word1}");
 }
 
 #[cfg(test)]

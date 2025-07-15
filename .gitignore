@@ -11,3 +11,4 @@ Cargo.lock
 **/*.rs.bk
 rust_tutorial/.direnv
 rust_tut/.direnv
+bacon_tut/.direnv

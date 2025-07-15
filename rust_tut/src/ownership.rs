@@ -101,6 +101,11 @@ pub fn ownership() -> Ownership {
 
     // mutable refrences
     // there can be only one mutable reference to a resource
+    // also there can't be any immutable refrences open when you make a mutalble refrence
+    // that way you make an immutable reference you can expect that it will not change
+
+    // you can have any number of immutable reference
+    // or only one mutalbe refreence
 
     let mut a = 40;
     {
