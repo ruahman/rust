@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 fn how_many(x: i32) -> &'static str {
     match x {
         0 => "no",

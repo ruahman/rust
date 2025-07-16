@@ -1,3 +1,10 @@
+#![allow(dead_code)]
+
+// this is the same as below
+// use std::io::{self, Write};
+// use std::io;
+// use std::io::Write;
+
 // define your modules here
 mod pizza_order;
 mod pizza_tester;

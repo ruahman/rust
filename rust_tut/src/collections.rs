@@ -1,8 +1,9 @@
+#![allow(dead_code)]
+
 use std::collections::{HashMap, HashSet};
 
 #[allow(clippy::vec_init_then_push)]
 pub fn run() {
-
     // vectors
     let mut a = Vec::new();
     a.push(1);

@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // in rust we define shared behavior using traits.
 
 // static and dynamic dispatch

@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(clippy::print_literal)]
 
 // printing is handled by a series of macros defined in std::fmt
 

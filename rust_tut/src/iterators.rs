@@ -1,4 +1,6 @@
 #![allow(dead_code)]
+#![allow(clippy::disallowed_names)]
+#![allow(clippy::useless_vec)]
 
 // you have to create an iterator and then run it.
 
@@ -92,7 +94,7 @@ pub fn iterators() {
         type IntoIter = RectIter;
 
         fn into_iter(self) -> Self::IntoIter {
-            return RectIter {
+            RectIter {
                 idx: 0,
                 points: vec![
                     (self.x, self.y),
@@ -100,7 +102,7 @@ pub fn iterators() {
                     (self.x, self.y + self.height),
                     (self.x + self.width, self.y + self.height),
                 ],
-            };
+            }
         }
     }
 

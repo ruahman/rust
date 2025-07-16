@@ -19,11 +19,13 @@ mod generics;
 mod hashmaps;
 mod hashsets;
 mod hello_world;
+mod interior_mutability;
 mod io;
 mod iterators;
 mod lifetimes;
 mod literals;
 mod loops;
+mod macros;
 mod methods;
 mod modules;
 mod mutex;
@@ -51,5 +53,5 @@ mod variables;
 mod vectors;
 
 fn main() {
-    println!("hello world test");
+    println!("run: `just test`");
 }

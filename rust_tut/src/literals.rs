@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(clippy::nonminimal_bool)]
 
 // Integers 1, floats 1.2, characters 'a', strings "abc", booleans true
 // and the unit type () can be expressed using literals.

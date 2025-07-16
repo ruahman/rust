@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // smart pointer are pointer with additional metadata and capabilities
 // string and vector are smart pointers because they own the memory they point to
 // and allow you to manipulate it and keep track of meta data.

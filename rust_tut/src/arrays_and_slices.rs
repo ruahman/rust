@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(clippy::needless_range_loop)]
 
 // an array is a collection of objects of the same type T.
 // their length is known at compile time and is part of their type signature

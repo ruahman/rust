@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 // for loops use ranges
 
 pub fn run() {
