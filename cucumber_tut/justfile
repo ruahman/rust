@@ -1,0 +1,27 @@
+build:
+	@echo "Building..."
+	cargo build 
+
+run:
+	@echo "Running..."
+	cargo run
+
+check:
+	@echo "check..."
+	cargo check
+
+lint:
+	@echo "Linting..."
+	cargo clippy
+
+clean:
+	@echo "Cleaning..."
+	cargo clean
+
+
+test t="": 
+  @if [ -z "{{t}}" ]; then \
+  cargo test; \
+  else \
+  cargo test "{{t}}" -- --nocapture; \
+  fi;
