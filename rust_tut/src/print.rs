@@ -1,4 +1,5 @@
-#[allow(clippy::print_literal)]
+#![allow(dead_code)]
+
 pub fn run() {
     println!("hello print");
 

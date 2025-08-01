@@ -1,27 +1,13 @@
-build:
-	@echo "Building..."
-	cargo build 
 
-run:
-	@echo "Running..."
-	cargo run
+test:
+  cargo test
 
-check:
-	@echo "check..."
-	cargo check
+test-unit:
+  cargo test --lib
 
-lint:
-	@echo "Linting..."
-	cargo clippy
+test-integration:
+  cargo test --tests "*"
+  
+nextest-unit:
+  cargo nextest run --lib
 
-clean:
-	@echo "Cleaning..."
-	cargo clean
-
-
-test t="": 
-  @if [ -z "{{t}}" ]; then \
-  cargo test; \
-  else \
-  cargo test "{{t}}" -- --nocapture; \
-  fi;

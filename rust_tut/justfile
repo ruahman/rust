@@ -1,18 +1,6 @@
-build:
-	@echo "Building..."
-	cargo build 
-
-run:
-	@echo "Running..."
-	cargo run
-
-check:
-	@echo "check..."
-	cargo check
-
 lint:
 	@echo "Linting..."
-	cargo clippy
+	argo clippy
 
 clean:
 	@echo "Cleaning..."

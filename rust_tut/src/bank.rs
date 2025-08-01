@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 // atomic reference counter
 use std::sync::Arc;
 // mutualy exclusive assessor

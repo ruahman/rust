@@ -6,12 +6,21 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# Add dependencies needed for your application
+tokio = { version = "1.0", features = ["full"] } # If using async runtime
 
 [dev-dependencies]
-cucumber = "0.20"
+cucumber = { version = "0.21" } # Check for the latest version
 futures = "0.3"
 
 [[test]]
-name = "example" # this should be the same as the filename of your test target
-harness = false  # allows Cucumber to print output instead of libtest
+name = "example" # must be the same as file name 
+harness = false # allows Cucumber to print to output instead of default rust tester
+
+[[test]]
+name = "example2" # must be the same as file name 
+harness = false # allows Cucumber to print to output instead of default rust tester
+
+
+
 

@@ -1,5 +1,4 @@
-#[allow(dead_code)]
-#[allow(clippy::enum_variant_names)]
+#![allow(dead_code)]
 enum Color {
     Red,
     Green,
@@ -13,7 +12,6 @@ enum Color {
     }, // struct
 }
 
-#[allow(unused_variables)]
 pub fn run() {
     println!("Enumerations...");
     // let c: Color = Color::Red;

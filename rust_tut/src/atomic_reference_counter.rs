@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // atomic reference count
 // mutualy exclusive assessor
 use std::sync::{Arc, Mutex};

@@ -1,4 +1,6 @@
-#[allow(unused_variables)]
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 pub fn run() {
     // rust has 4 scalar types
 

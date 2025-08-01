@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::sync::mpsc;
 use std::thread;
 
@@ -13,7 +15,7 @@ pub fn run() {
         tx.send(val).unwrap();
     });
 
-    // receive "hi" 
+    // receive "hi"
     let received = rx.recv().unwrap();
     println!("Got: {}", received);
 

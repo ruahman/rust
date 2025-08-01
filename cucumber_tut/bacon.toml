@@ -55,6 +55,20 @@ command = [
 ]
 need_stdout = true
 
+[jobs.example]
+command = [
+    "cargo", "test", "--test", "example",
+    "--", "--color", "always", # see https://github.com/Canop/bacon/issues/124
+]
+need_stdout = true
+
+[jobs.example2]
+command = [
+    "cargo", "test", "--test", "example2",
+    "--", "--color", "always", # see https://github.com/Canop/bacon/issues/124
+]
+need_stdout = true
+
 [jobs.nextest]
 command = ["cargo", "nextest", "run", "--color", "always", "--hide-progress-bar", "--failure-output", "final"]
 need_stdout = true

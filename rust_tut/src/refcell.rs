@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 // refcells inforce the borrow rules at runtime instead of compile time
 
 // you need to get around the borrow checker sometimes.

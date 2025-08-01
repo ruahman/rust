@@ -24,6 +24,7 @@ mod iterators;
 mod lifetimes;
 mod literals;
 mod loops;
+mod macros;
 mod methods;
 mod modules;
 mod mutex;
