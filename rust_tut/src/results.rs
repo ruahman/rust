@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(clippy::disallowed_names)]
 
 // result is just another enum
 
@@ -47,9 +48,8 @@ pub fn results() {
     }
 
     let foo: Result<String, String> = Ok::<String, String>("This is the result".into());
-    if foo.is_ok() {
-        let res = foo.unwrap();
-        println!("I'm okay: {}", res);
+    if let Ok(foo1) = foo {
+        println!("I'm okay: {}", foo1);
     }
 }
 

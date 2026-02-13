@@ -1,4 +1,6 @@
 #![allow(dead_code)]
+#![allow(clippy::unnecessary_literal_unwrap)]
+#![allow(clippy::disallowed_names)]
 
 // options are basicaly a enum of Some(v) or None
 pub fn options() {

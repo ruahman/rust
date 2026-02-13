@@ -1,4 +1,6 @@
 #![allow(dead_code)]
+#![allow(clippy::enum_variant_names)]
+
 enum Color {
     Red,
     Green,

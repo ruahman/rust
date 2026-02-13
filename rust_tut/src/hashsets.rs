@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(clippy::just_underscores_and_digits)]
 
 use std::collections::HashSet;
 

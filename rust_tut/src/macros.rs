@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(clippy::vec_init_then_push)]
 
 use std::collections::HashSet;
 

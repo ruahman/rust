@@ -1,6 +1,8 @@
 // constant value and replaces it with the value when ever it's called,
 #![allow(clippy::approx_constant)]
 #![allow(dead_code)]
+#![allow(static_mut_refs)]
+
 const PI: f64 = 3.14;
 
 // constant memory address then anyone can get

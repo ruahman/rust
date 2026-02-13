@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
+#![allow(clippy::extra_unused_lifetimes)]
 
 // a lifetime is when a value is allocated and deallocated
 
@@ -109,7 +110,7 @@ fn get_str_ref<'a>(param_1: &'a str, param_2: &'a str) -> &'a str {
 // you only need to specifi lifetime if you return a reference.
 // it doesn't mater if you have parameters that have lifetimes.
 fn test_2<'a>(param_1: &Vec<f64>) -> Vec<f64> {
-    param_1.clone()
+    param_1.to_owned()
 }
 
 // you use lifetimes when you have refrence inputs and return a reference

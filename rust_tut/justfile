@@ -1,11 +1,11 @@
+build:
+  cargo build
+
+check:
+  cargo check
+
 lint:
-	@echo "Linting..."
-	argo clippy
-
-clean:
-	@echo "Cleaning..."
-	cargo clean
-
+	cargo clippy
 
 test t="": 
   @if [ -z "{{t}}" ]; then \
@@ -13,3 +13,9 @@ test t="":
   else \
   cargo test "{{t}}" -- --nocapture; \
   fi;
+
+run:
+  cargo run
+
+clean:
+	cargo clean

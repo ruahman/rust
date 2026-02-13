@@ -1,4 +1,6 @@
 #![allow(dead_code)]
+#![allow(clippy::vec_init_then_push)]
+#![allow(clippy::disallowed_names)]
 
 use std::fmt::Debug;
 use std::fmt::Display;
@@ -115,6 +117,7 @@ struct Circle {
     width: f32,
 }
 
+#[allow(clippy::approx_constant)]
 const PI: f32 = 3.14;
 
 // implement the shape trait for the rectangle
@@ -175,7 +178,7 @@ impl Default for Person {
 }
 impl Display for Person {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        return write!(f, "Foobar {}", self.name);
+        write!(f, "Foobar {}", self.name)
     }
 }
 
