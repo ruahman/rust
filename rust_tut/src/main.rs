@@ -53,5 +53,5 @@ mod variables;
 mod vectors;
 
 fn main() {
-    println!("run: `just test`");
+    println!("hello from windows");
 }
