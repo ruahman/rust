@@ -1,2 +1,7 @@
 target
 ._*
+/.idea/.gitignore
+/.idea/awsToolkit.xml
+/.idea/modules.xml
+/.idea/rust_tut.iml
+/.idea/vcs.xml
