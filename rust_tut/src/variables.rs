@@ -11,6 +11,9 @@ const MEANING_OF_LIFE: u8 = 42; // no fixed address
 static Z: i32 = 123; // this has an address
 
 pub fn variables() {
+    let name = "John";
+    println!("My first name is: {}", name);
+
     let a: u8 = 123; // unsigned 8 bits
     println!("a: {a}"); // immutable
 

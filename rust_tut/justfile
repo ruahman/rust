@@ -1,0 +1,19 @@
+
+build:
+  cargo build
+
+release:
+  cargo build --release
+
+check:
+  cargo check
+
+tests:
+  cargo test
+
+test path:
+  cargo test {{path}} -- --nocapture 
+
+run:
+  cargo run
+

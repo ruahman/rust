@@ -3,6 +3,10 @@
 
 use std::collections::HashSet;
 
+// macros are a way for rust to extended it's syntax
+// rust macros are a way to write code that generates code
+// to extend Rust syntax,
+
 // this is inserted into the code
 // - macro are switch statements that run at compile time
 macro_rules! say_hello {

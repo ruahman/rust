@@ -16,6 +16,7 @@ mod formatting;
 mod from;
 mod functions;
 mod generics;
+mod guess_random_number;
 mod hashmaps;
 mod hashsets;
 mod hello_world;
